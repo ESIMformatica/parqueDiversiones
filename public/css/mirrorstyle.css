@@ -1,0 +1,536 @@
+/* ===================================================
+   MIRROR MAZE
+   Nintendo Wii Sports (2006) Style
+=================================================== */
+
+/* Importar fuente */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+@font-face{
+    font-family:'Wii';
+
+    src:url('/fonts/Continuum.ttf') format('truetype');
+
+    font-weight:normal;
+
+    font-style:normal;
+}
+
+@font-face{
+    font-family:'Wii';
+
+    src:url('/fonts/Continuum Bold.ttf') format('truetype');
+
+    font-weight:bold;
+
+    font-style:normal;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Wii', Arial, sans-serif;
+}
+
+/* ================= FONDO ================= */
+
+body{
+
+    min-height:100vh;
+
+    color:#536b7b;
+
+    background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.95) 0 40px, transparent 41px),
+    radial-gradient(circle at 80% 25%, rgba(255,255,255,.85) 0 60px, transparent 61px),
+    radial-gradient(circle at 30% 80%, rgba(255,255,255,.7) 0 45px, transparent 46px),
+    radial-gradient(circle at 90% 70%, rgba(255,255,255,.6) 0 35px, transparent 36px),
+    linear-gradient(to bottom,#ffffff,#edfaff,#d9f4ff,#c7ebff);
+
+}
+
+/* Burbujas */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.4;
+
+    background:
+
+    radial-gradient(circle,rgba(255,255,255,.6) 0 20px,transparent 21px),
+    radial-gradient(circle,rgba(255,255,255,.45) 0 35px,transparent 36px),
+    radial-gradient(circle,rgba(255,255,255,.5) 0 15px,transparent 16px);
+
+    background-size:
+    250px 250px,
+    420px 420px,
+    170px 170px;
+
+}
+
+/* ================= HEADER ================= */
+
+header{
+
+    text-align:center;
+
+    padding:30px;
+
+    background:
+    linear-gradient(
+    white,
+    #f9feff,
+    #e7f8ff);
+
+    border-bottom:2px solid #b9d8e8;
+
+    box-shadow:
+    inset 0 2px white,
+    0 3px 8px rgba(0,0,0,.08);
+
+}
+
+/* Logo */
+
+.logo{
+
+    margin-bottom:15px;
+
+}
+
+.logo img{
+
+    width:420px;
+
+    max-width:100%;
+
+}
+
+/* Títulos */
+
+header h1{
+
+    font-size:52px;
+
+    color:#00a2e8;
+
+    letter-spacing:2px;
+
+    text-shadow:
+
+    0 1px white,
+    0 2px #dff6ff,
+    0 0 15px white;
+
+}
+
+header h2{
+
+    margin-top:8px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#6d8a99;
+
+}
+
+/* ================= CONTENIDO ================= */
+
+main{
+
+    width:92%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    background:
+
+    linear-gradient(
+    white,
+    #fbfeff,
+    #e9f8ff);
+
+    border:1px solid #b9d8e8;
+
+    border-radius:22px;
+
+    box-shadow:
+
+    inset 0 2px white,
+    inset 0 -2px #d7edf8,
+    0 3px 10px rgba(0,0,0,.08);
+
+    transition:.2s;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+
+    left:-35%;
+
+    width:80%;
+
+    height:220px;
+
+    transform:rotate(-8deg);
+
+    background:
+
+    linear-gradient(
+    rgba(255,255,255,.8),
+    transparent);
+
+}
+
+.hero:hover{
+
+    border-color:#73c7ef;
+
+    transform:translateY(-2px);
+
+}
+
+/* Texto */
+
+.hero-text{
+
+    flex:1;
+
+    min-width:320px;
+
+}
+
+.hero-text h2{
+
+    font-size:34px;
+
+    color:#0097df;
+
+    margin-bottom:18px;
+
+}
+
+.hero-text p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+
+}
+
+/* Imagen */
+
+.hero-image{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:white;
+
+    padding:10px;
+
+    border:3px solid #d5e7ef;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    inset 0 2px white,
+    0 4px 10px rgba(0,0,0,.08);
+
+}
+
+/* ================= SECCIONES ================= */
+
+section:not(.hero){
+
+    margin-top:35px;
+
+    padding:28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    linear-gradient(
+    white,
+    #fcfeff,
+    #e8f8ff);
+
+    border:1px solid #b9d8e8;
+
+    border-radius:22px;
+
+    box-shadow:
+
+    inset 0 2px white,
+    inset 0 -2px #d7edf8,
+    0 3px 10px rgba(0,0,0,.08);
+
+    transition:.2s;
+
+}
+
+section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+
+    left:-35%;
+
+    width:80%;
+
+    height:220px;
+
+    transform:rotate(-8deg);
+
+    background:
+
+    linear-gradient(
+    rgba(255,255,255,.8),
+    transparent);
+
+}
+
+section:hover{
+
+    border-color:#73c7ef;
+
+    transform:translateY(-2px);
+
+}
+
+section h2{
+
+    color:#0097df;
+
+    font-size:30px;
+
+    margin-bottom:18px;
+
+}
+
+section p{
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+/* ================= LISTAS ================= */
+
+ul{
+
+    padding-left:28px;
+
+    margin-top:15px;
+
+}
+
+li{
+
+    margin:10px 0;
+
+    font-size:17px;
+
+}
+
+li::marker{
+
+    color:#0aa9ec;
+
+}
+
+/* ================= BOTONES ================= */
+
+button,
+.btn{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:14px 35px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#0082c8;
+
+    background:
+
+    linear-gradient(
+    white,
+    #eefbff,
+    #d6f2ff);
+
+    box-shadow:
+
+    inset 0 2px white,
+    0 3px 6px rgba(0,0,0,.15);
+
+    transition:.2s;
+
+}
+
+button:hover,
+.btn:hover{
+
+    background:
+
+    linear-gradient(
+    white,
+    #ffffff,
+    #cfeeff);
+
+    transform:scale(1.03);
+
+}
+
+button:active,
+.btn:active{
+
+    transform:scale(.97);
+
+}
+
+/* ================= LINKS ================= */
+
+a{
+
+    color:#008fd5;
+
+    text-decoration:none;
+
+}
+
+a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:60px;
+
+    padding:22px;
+
+    text-align:center;
+
+    color:#6f8d9c;
+
+    background:
+
+    linear-gradient(
+    white,
+    #e8f8ff);
+
+    border-top:2px solid #b9d8e8;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.hero-image img{
+
+    max-width:320px;
+
+}
+
+header h1{
+
+    font-size:40px;
+
+}
+
+.logo img{
+
+    width:140px;
+
+}
+
+.hero-text h2{
+
+    font-size:28px;
+
+}
+
+}
