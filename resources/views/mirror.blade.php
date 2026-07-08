@@ -312,14 +312,18 @@
     <footer>
         <div class="footer-disc">💽</div>
         <p>&copy; <?php echo date("Y"); ?> - Proyecto Tecnológico</p>
-        <p class="footer-sub">Hecho con cariño, tornillos y muchos espejos.</p>
+        <p class="footer-sub">Hecho con cariño, tornillos y muchos "espejos".</p>
     </footer>
 
     <!-- Canvas para partículas / burbujas flotantes -->
     <canvas id="bubble-canvas" aria-hidden="true"></canvas>
+   
+    <!-- Música de fondo -->
+    <audio id="background-music" loop>
+     <source src="{{ asset('music/mirror.mp3') }}" type="audio/mpeg">
+    </audio>
 
     <!-- JS -->
     <script src="{{ asset('js/mirror.js') }}"></script>
-
 </body>
 </html>

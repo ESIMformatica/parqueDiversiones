@@ -300,6 +300,77 @@
   let audioCtx = null;
   let soundEnabled = false;
 
+    /* =================================================
+     9.1 MÚSICA DE FONDO
+  ================================================= */
+
+  let musicPlaying = false;
+
+  function initBackgroundMusic() {
+
+    const music = $("#background-music");
+    const btn = $("#sound-toggle");
+    const startBtn = $("#start-btn");
+
+    if (!music) return;
+
+    music.volume = 0.3;
+
+    function toggleMusic() {
+
+      if (musicPlaying) {
+
+        music.pause();
+        musicPlaying = false;
+
+        if (btn) {
+          btn.querySelector(".icon-sound").textContent = "🔈";
+          btn.setAttribute("aria-pressed", "false");
+        }
+
+      } else {
+
+        music.play().catch(() => {
+          console.log("El navegador bloqueó la reproducción automática");
+        });
+
+        musicPlaying = true;
+
+        if (btn) {
+          btn.querySelector(".icon-sound").textContent = "🔊";
+          btn.setAttribute("aria-pressed", "true");
+        }
+      }
+    }
+
+
+    // Empieza cuando toca "Empezar aventura"
+    if (startBtn) {
+      startBtn.addEventListener("click", () => {
+
+        if (!musicPlaying) {
+
+          music.play().catch(() => {});
+
+          musicPlaying = true;
+
+          if (btn) {
+            btn.querySelector(".icon-sound").textContent = "🔊";
+            btn.setAttribute("aria-pressed", "true");
+          }
+
+        }
+      });
+    }
+
+
+    // Botón de sonido superior
+    if (btn) {
+      btn.addEventListener("click", toggleMusic);
+    }
+
+  }
+
   function ensureAudioCtx() {
     if (!audioCtx) {
       const AudioContextClass =
@@ -449,6 +520,7 @@
     initTilt3D();
     initChannelTiles();
     initSoundToggle();
+    initBackgroundMusic();
     initAchievements();
     initBubbleBackground();
   }
