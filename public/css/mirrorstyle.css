@@ -60,6 +60,9 @@
     --ease-wii:cubic-bezier(.34,1.56,.64,1);
 }
 
+h1,h2,p,li,span{
+    cursor: url("../cursores/wii-pointer.cur"), auto;
+}
 *{
     margin:0;
     padding:0;
@@ -77,6 +80,7 @@ html{
 }
 
 body{
+    cursor: url("../cursores/wii-pointer.cur") 8 4, auto;
     min-height:100vh;
     color:var(--ink);
     overflow-x:hidden;
@@ -243,9 +247,11 @@ body{
     cursor:pointer;
     font-size:16px;
     transition:.2s var(--ease-wii);
+    cursor: url("../cursores/wii-open.cur"), pointer;
 }
 .wii-icon-btn:hover{
     transform:scale(1.1) rotate(-6deg);
+    cursor: url("../cursores/wii-grab.cur"), grabbing;
 }
 .wii-icon-btn[aria-pressed="false"] .icon-sound{
     filter:grayscale(1) opacity(.5);
@@ -359,6 +365,7 @@ header h2{
     background:linear-gradient(180deg, var(--white), #eefbff, #d6f2ff);
     box-shadow:var(--shadow-inset), 0 4px 10px rgba(0,0,0,.15);
     transition:transform .18s var(--ease-wii), box-shadow .18s ease;
+    cursor: url("../cursores/wii-open.cur"), pointer;
 }
 .wii-button-big{
     font-size:20px;
@@ -370,6 +377,7 @@ header h2{
 }
 .wii-button:active{
     transform:scale(.96);
+    cursor: url("../cursores/wii-grab.cur"), grabbing;
 }
 .wii-button-shine{
     position:absolute;
@@ -430,6 +438,7 @@ main{
     padding:5px 14px;
     border-radius:999px;
     margin-bottom:12px;
+    cursor: url("../cursores/wii-help.cur"), help;
 }
 
 /* Reveal on scroll */
@@ -472,6 +481,7 @@ main{
     font-weight:700;
     text-decoration:none;
     transition:transform .25s var(--ease-wii), box-shadow .25s ease, border-color .25s ease;
+    cursor: url("../cursores/wii-open.cur"), pointer;
 }
 .channel-tile:hover{
     transform:translateY(-6px) rotate(-1deg) scale(1.04);
@@ -479,6 +489,7 @@ main{
     box-shadow:var(--shadow-inset), 0 10px 22px rgba(0,120,190,.22);
     text-decoration:none;
     animation:wobble .6s var(--ease-wii);
+    cursor: url("../cursores/wii-grab.cur"), grabbing;
 }
 @keyframes wobble{
     0%,100%{ transform:translateY(-6px) rotate(-1deg) scale(1.04); }
@@ -487,6 +498,7 @@ main{
 }
 .channel-tile:active{
     transform:scale(.94);
+    cursor: url("../cursores/wii-grab.cur"), grabbing;
 }
 .channel-icon{
     font-size:36px;
@@ -515,6 +527,7 @@ section:not(.channel-menu){
     transition:transform .15s ease, box-shadow .3s ease, border-color .3s ease;
     transform-style:preserve-3d;
     will-change:transform;
+    cursor: url("../cursores/wii-pointer-blue.cur"), default;
 }
 .hero::before,
 section:not(.channel-menu)::before{
@@ -531,6 +544,7 @@ section:not(.channel-menu)::before{
 .card-3d:hover{
     border-color:var(--border-hover);
     box-shadow:var(--shadow-inset), inset 0 -2px var(--border), 0 16px 30px rgba(0,120,190,.18);
+    cursor: url("../cursores/wii-pointer-blue.cur"), default;
 }
 
 .hero{
@@ -539,6 +553,7 @@ section:not(.channel-menu)::before{
     align-items:center;
     gap:40px;
     flex-wrap:wrap;
+    cursor: url("../cursores/wii-pointer-blue.cur"), default;
 }
 .hero-text{ flex:1; min-width:320px; }
 .hero-text h2{
@@ -572,6 +587,7 @@ section:not(.channel-menu) h2{
 section p{
     font-size:17px;
     line-height:1.8;
+    cursor: text;
 }
 
 /* ===================================================
@@ -599,6 +615,7 @@ section p{
     transform:translateY(-4px) scale(1.06);
     border-color:var(--border-hover);
     background:linear-gradient(180deg, var(--white), #d8f1ff);
+    cursor: url("../cursores/wii-grab.cur"), grabbing;
 }
 
 .objective-list{
@@ -659,6 +676,7 @@ section p{
     border:1px solid var(--border);
     border-radius:var(--radius-md);
     padding:18px 10px;
+    cursor: url("../cursores/wii-help.cur"), help;
 }
 .mini-stat-number{
     display:block;
@@ -694,6 +712,8 @@ section p{
     filter:grayscale(1);
     opacity:.55;
     transition:.4s var(--ease-wii);
+    cursor: url("../cursores/wii-open.cur"), pointer;
+
 }
 .achievement-badge .badge-icon{
     font-size:32px;
@@ -743,6 +763,7 @@ footer{
 .footer-sub{
     font-size:13px;
     margin-top:4px;
+    cursor: url("../cursores/wii-help.cur"), help;
 }
 
 /* ===================================================
