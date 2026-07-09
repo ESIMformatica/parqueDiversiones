@@ -25,11 +25,11 @@
     const loader = $("#disc-loader");
     if (!loader) return;
 
-    const hide = () => loader.classList.add("hide");
-    // Da tiempo a apreciar la animación aunque cargue rápido
-    window.addEventListener("load", () => setTimeout(hide, 900));
-    // Failsafe: nunca dejar al usuario atascado en la carga
-    setTimeout(hide, 3000);
+      const hide = () => loader.classList.add("hide");
+     // Da tiempo a apreciar la animación aunque cargue rápido
+  window.addEventListener("load", () => {
+
+  });
   }
 
   /* =================================================
@@ -285,11 +285,20 @@
     });
 
     const startBtn = $("#start-btn");
-    if (startBtn) {
-      startBtn.addEventListener("click", () => {
-        playSound("click");
-        const menu = $(".channel-menu");
-        if (menu) menu.scrollIntoView({ behavior: "smooth" });
+      if (startBtn) {
+        startBtn.addEventListener("click", () => {
+          playSound("click");
+          const music = $("#start-music");
+          if (music) {
+              music.currentTime = 0;
+              music.play();
+          }
+          const menu = $(".channel-menu");
+          if (menu) {
+              menu.scrollIntoView({
+                  behavior: "smooth"
+              });
+          }
       });
     }
   }
@@ -381,38 +390,15 @@
   }
 
   function playSound(type) {
-    if (!soundEnabled) return;
-    const ctx = ensureAudioCtx();
-    if (!ctx) return;
-
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    const now = ctx.currentTime;
-    let freq = 660;
-    let duration = 0.12;
-
-    if (type === "click") {
-      freq = 740;
-      duration = 0.1;
-    } else if (type === "hover") {
-      freq = 880;
-      duration = 0.06;
-    } else if (type === "achievement") {
-      freq = 1046;
-      duration = 0.35;
-    }
-
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(freq, now);
-    gain.gain.setValueAtTime(0.001, now);
-    gain.gain.exponentialRampToValueAtTime(0.15, now + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
-
-    osc.start(now);
-    osc.stop(now + duration + 0.05);
+    const sounds = {
+        click: $("#sound-click"),
+        hover: $("#sound-hover"),
+        achievement: $("#sound-achievement")
+    };
+    const audio = sounds[type];
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
   }
 
   function initSoundToggle() {
@@ -507,11 +493,39 @@
       });
     }
   }
+  /* =================================================
+     PANTALLA DE INICIO WII
+  ================================================= */
 
+  function initStartScreen(){
+      const screen = $("#wii-start-screen");
+      const button = $("#start-adventure");
+      const loader = $("#disc-loader");
+      if(!screen || !button) return;
+      button.addEventListener("click",()=>{
+      playSound("click");
+      if(loader){
+          loader.classList.add("show");
+      }
+      screen.classList.add("hide");
+      setTimeout(()=>{
+          screen.remove();
+        },700);
+           setTimeout(()=>{
+             if(loader){
+                loader.classList.remove("show");
+                loader.classList.add("hide");
+            }
+
+      },2200);
+
+    });
+  }
   /* =================================================
      INIT GENERAL
   ================================================= */
   function init() {
+    initStartScreen();
     initLoader();
     initClock();
     initScrollProgress();
@@ -524,7 +538,6 @@
     initAchievements();
     initBubbleBackground();
   }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {

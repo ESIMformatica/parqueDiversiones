@@ -18,16 +18,40 @@
 <body>
 
     <!-- ===================================================
-         PANTALLA DE CARGA ESTILO "LECTURA DE DISCO" WII
+         PANTALLA DE INICIO ESTILO "LECTURA WII"
     =================================================== -->
+    <div id="wii-start-screen">
+
+        <div class="start-logo">
+         <img src="{{ asset('imagenesMirror/logomirror.png') }}" alt="Mirror Maze">
+      </div>
+
+     <p class="start-title">
+         Mirror Maze
+     </p>
+
+     <p class="start-subtitle">
+            Un mundo de espejos, robots y realidad virtual
+     </p>
+
+     <button id="start-adventure" class="wii-button wii-button-big">
+         A Empezar aventura
+     </button>
+    </div>
     <div id="disc-loader" aria-hidden="true">
         <div class="disc">
             <div class="disc-shine"></div>
             <div class="disc-hole"></div>
         </div>
-        <p class="loader-text">Leyendo disco<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
-    </div>
 
+        <p class="loader-text">
+            Leyendo disco<span class="dots">
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+            </span>
+        </p>
+    </div>
     <!-- ===================================================
          BARRA SUPERIOR ESTILO CANAL WII
     =================================================== -->
@@ -328,7 +352,10 @@
     <audio id="background-music" loop>
      <source src="{{ asset('music/mirror.mp3') }}" type="audio/mpeg">
     </audio>
-
+    <audio id="sound-click" src="{{ asset('music/mirrorclick.mp3') }}"></audio>
+    <audio id="sound-hover" src="{{ asset('music/mirrorhover.mp3') }}"></audio>
+    <audio id="sound-achievement" src="{{ asset('music/mirrorachievement.mp3') }}"></audio>
+    <audio id="start-music" src="{{ asset('music/mirror-start.mp3') }}"></audio>
     <!-- JS -->
     <script src="{{ asset('js/mirror.js') }}"></script>
 </body>

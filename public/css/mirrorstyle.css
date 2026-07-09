@@ -97,16 +97,28 @@ body{
    DISC LOADER — pantalla de carga "leyendo disco"
 =================================================== */
 #disc-loader{
+
     position:fixed;
     inset:0;
-    z-index:9999;
+    z-index:10001;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     gap:24px;
     background:linear-gradient(180deg, var(--sky-top), var(--sky-bottom));
-    transition:opacity .6s ease, visibility .6s ease;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .5s ease, visibility .5s ease;
+}
+#disc-loader.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+#disc-loader.show{
+    display:flex;
 }
 #disc-loader.hide{
     opacity:0;
@@ -774,7 +786,69 @@ footer{
     inset:0;
     z-index:0;
     pointer-events:none;
-    opacity:.55;
+    opacity:.80;
+}
+/* ===================================================
+   PANTALLA DE INICIO WII
+=================================================== */
+
+#wii-start-screen{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+
+    background:
+        radial-gradient(circle at center,
+        #ffffff 0%,
+        #e8f8ff 45%,
+        #bfe9fb 100%);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s;
+}
+
+
+#wii-start-screen.hide{
+    opacity:0;
+    transform:scale(1.2);
+    visibility:hidden;
+    pointer-events:none;
+}
+
+
+.start-logo img{
+    width:420px;
+    max-width:75vw;
+
+    animation:
+        floaty 4s ease-in-out infinite;
+}
+
+
+.start-title{
+    font-family:var(--font-display);
+    font-size:48px;
+    font-weight:700;
+    color:var(--blue);
+
+    text-shadow:
+        0 2px white,
+        0 5px 20px rgba(0,162,232,.25);
+}
+
+
+.start-subtitle{
+    font-size:18px;
+    color:var(--ink-soft);
+    text-align:center;
 }
 
 /* ===================================================
