@@ -1,0 +1,221 @@
+/* ==========================================
+   1. CONFIGURACIÓN GENERAL Y FUENTES
+   ========================================== */
+@font-face {
+    font-family: 'KartDS';
+    src: url('../fonts/Mario-Kart-DS.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MarioDS';
+    src: url('../fonts/SuperMarioDsRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #ffffff;
+    background-color: #0d0714;
+    overflow: hidden; /* Evita el scroll doble del body */
+}
+
+/* ==========================================
+   2. BARRA DE DESPLAZAMIENTO (SCROLLBAR)
+   ========================================== */
+.parallax-wrapper::-webkit-scrollbar {
+    width: 12px;
+}
+
+.parallax-wrapper::-webkit-scrollbar-track {
+    background: #0d0714; 
+}
+
+.parallax-wrapper::-webkit-scrollbar-thumb {
+    background: #3a1d5d; 
+    border-radius: 6px;
+    border: 2px solid #0d0714;
+}
+
+.parallax-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #562c8a; 
+}
+
+/* ==========================================
+   3. ESTRUCTURA CORE DEL PARALLAX (Efecto 3D)
+   ========================================== */
+.parallax-wrapper {
+    perspective: 10px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Base para las capas de fondo */
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Contenedor del contenido principal */
+.parallax-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Velocidades de las 4 capas */
+.layer-1 {
+    transform: translateZ(-20px) scale(3);
+    opacity: 0.4;
+}
+
+.layer-2 {
+    transform: translateZ(-12px) scale(2.2);
+    opacity: 0.5;
+}
+
+.layer-3 {
+    transform: translateZ(-6px) scale(1.6);
+    opacity: 0.6;
+}
+
+.layer-4 {
+    transform: translateZ(-2px) scale(1.2);
+    opacity: 0.7;
+}
+
+/* ==========================================
+   4. SECCIONES, TEXTOS Y MARGENES
+   ========================================== */
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.content-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Primera Sección: Se ajusta al contenido para no generar huecos */
+.intro-section {
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+/* Segunda Sección: Conserva el degradado negro inferior */
+.credits-section {
+    min-height: 60vh;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 30%, #000000 100%);
+    justify-content: space-between;
+}
+
+.credits-section .content-container {
+    margin: auto 0;
+}
+
+/* --- ESTILOS DE TEXTO --- */
+
+.titulo {
+    font-family: 'KartDS', sans-serif;
+    background: linear-gradient(to top, #f89818 0%, #ffd026 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(4px 4px 0px #000000) 
+            drop-shadow(-4px -4px 0px #000000) 
+            drop-shadow(4px -4px 0px #000000) 
+            drop-shadow(-4px 4px 0px #000000)
+            drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.6));
+    font-size: 20vh;
+    margin-bottom: 20px;
+}
+
+.texto-normal {
+    font-family: 'MarioDS', sans-serif;
+    font-size: 4.5vh;
+    margin-bottom: 15px;
+}
+
+.duration-text {
+    margin-bottom: 30px; /* Distancia previa a la sección de integrantes */
+    line-height: 1.2;
+}
+
+.section-title {
+    margin-bottom: 25px;
+}
+
+/* ==========================================
+   5. TARJETAS DE INTEGRANTES (AVATARES)
+   ========================================== */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.avatar-wrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid #000000;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    background-color: #222;
+    margin-bottom: 15px;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-name {
+    font-family: 'MarioDS', sans-serif;
+    font-size: 3vh;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Footer del Copyright */
+.footer-credits {
+    width: 100%;
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
+    color: #cccccc;
+    padding: 20px 0 10px 0;
+    text-align: center;
+}
