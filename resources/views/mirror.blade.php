@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirror Maze & Slug Cat Robot — Wii Zone</title>
-    <link rel="icon" type="image/png" href="{{ asset('favicon/mirror/favicon-96x96.png') }}" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon/mirror/favicon.svg') }}" />
-    <link rel="shortcut icon" href="{{ asset('favicon/mirror/favicon.ico') }}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/mirror/apple-touch-icon.png') }}" />
-    <meta name="apple-mobile-web-app-title" content="Mirror Maze" />
-    <link rel="manifest" href="{{ asset('favicon/mirror/site.webmanifest') }}" />
+<x-layout.app title="Mirror Maze">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/mirrorstyle.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-</head>
-<body>
+<x-slot:head>
+
+<link rel="icon" type="image/png" href="{{ asset('favicon/mirror/favicon-96x96.png') }}" sizes="96x96">
+
+<link rel="icon" type="image/svg+xml" href="{{ asset('favicon/mirror/favicon.svg') }}">
+
+<link rel="shortcut icon" href="{{ asset('favicon/mirror/favicon.ico') }}">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/mirror/apple-touch-icon.png') }}">
+
+<meta name="apple-mobile-web-app-title" content="Mirror Maze">
+
+<link rel="manifest" href="{{ asset('favicon/mirror/site.webmanifest') }}">
+
+<link rel="stylesheet" href="{{ asset('css/mirrorstyle.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+</x-slot:head>
 
     <!-- ===================================================
          PANTALLA DE CARGA ESTILO "LECTURA DE DISCO" WII
@@ -329,7 +332,11 @@
      <source src="{{ asset('music/mirror.mp3') }}" type="audio/mpeg">
     </audio>
 
-    <!-- JS -->
+    <audio id="sound-click" src="{{ asset('music/mirrorclick.mp3') }}"></audio>
+    <audio id="sound-hover" src="{{ asset('music/mirrorhover.mp3') }}"></audio>
+    <audio id="sound-achievement" src="{{ asset('music/mirrorachievement.mp3') }}"></audio>
+    <audio id="start-music" src="{{ asset('music/mirror-start.mp3') }}"></audio>
+
     <script src="{{ asset('js/mirror.js') }}"></script>
-</body>
-</html>
+
+</x-layout.app>

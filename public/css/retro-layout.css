@@ -1,0 +1,221 @@
+/* ============================================================
+   Tokens del tema retro (principios de los 2000, adaptado a hoy)
+   Tocá solo esta sección para cambiar el look del layout entero.
+   ============================================================ */
+:root {
+  --retro-ink: #1c2b3a;               /* texto principal */
+  --retro-steel: #2f5d8a;             /* azul principal (links, marca) */
+  --retro-steel-soft: #6a97bf;        /* azul secundario (labels, hover) */
+  --retro-amber: #c9891f;             /* acento activo, tipo "flag" clásico */
+  --retro-line: rgba(47, 93, 138, 0.25);   /* líneas divisorias, casi invisibles */
+  --retro-paper: rgba(47, 93, 138, 0.06);  /* fondo translúcido solo en hover/activo */
+
+  --retro-font-display: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+  --retro-font-body: 'IBM Plex Sans', Arial, sans-serif;
+  --retro-font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --retro-sidebar-width:190px;
+  --retro-sidebar-collapsed:64px;
+}
+
+/* ============================================================
+   Estructura general: sidebar fijo + contenido con margen
+   ============================================================ */
+.retro-shell {
+  font-family: var(--retro-font-body);
+  color: var(--retro-ink);
+}
+
+.retro-sidebar{
+    position:fixed;
+    inset:0 auto 0 0;
+
+    width:var(--retro-sidebar-width);
+
+    display:flex;
+    flex-direction:column;
+
+  background: rgba(250,250,250,.92);
+  backdrop-filter: blur(12px);
+
+    border-right:1px solid var(--retro-line);
+
+    transition:.25s;
+}
+
+.retro-main {
+  margin-left: var(--retro-sidebar-width);
+  min-height: 100vh;
+}
+
+.retro-main__header {
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--retro-line);
+}
+
+.retro-main__content {
+  padding: 28px 32px;
+}
+
+.retro-sidebar__title::after {
+  content: "";
+  display: block;
+  margin-top: 12px;
+  height: 1px;
+  background: var(--retro-line);
+  box-shadow: 0 2px 0 -1px rgba(47, 93, 138, 0.12); /* doble filete sutil, guiño retro */
+}
+
+/* ============================================================
+   Navegación
+   ============================================================ */
+.retro-sidebar__section + .retro-sidebar__section {
+  margin-top: 20px;
+}
+
+.retro-sidebar__label {
+  font-family: var(--retro-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--retro-steel-soft);
+  margin: 0 0 6px;
+}
+
+.retro-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.retro-sidebar__link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  border-radius: 0; /* los bordes de un solo lado no llevan radius */
+  padding: 6px 10px 6px 8px;
+  font-family: var(--retro-font-body);
+  font-size: 14px;
+  color: var(--retro-ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.retro-sidebar__marker {
+  display: inline-block;
+  width: 14px;
+  color: var(--retro-steel-soft);
+  transition: color 0.12s ease;
+}
+
+.retro-sidebar__link:hover {
+  background: var(--retro-paper);
+}
+
+.retro-sidebar__link.is-active {
+  background: var(--retro-paper);
+  border-left-color: var(--retro-amber);
+  font-weight: 500;
+}
+
+.retro-sidebar__link.is-active .retro-sidebar__marker {
+  color: var(--retro-amber);
+}
+
+/* ============================================================
+   Responsive: por debajo de 768px el sidebar pasa a barra superior
+   ============================================================ */
+@media (max-width: 768px) {
+  .retro-sidebar {
+    position: static;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--retro-line);
+    padding: 14px 18px;
+  }
+
+  .retro-sidebar__nav {
+    display: flex;
+    gap: 18px;
+  }
+
+  .retro-sidebar__section + .retro-sidebar__section {
+    margin-top: 0;
+  }
+
+  .retro-sidebar__list {
+    display: flex;
+    gap: 4px;
+  }
+
+  .retro-main {
+    margin-left: 0;
+  }
+}
+
+.retro-toggle{
+
+    width:42px;
+    height:42px;
+
+    margin:8px auto 24px;
+
+    border:1px solid var(--retro-line);
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+.retro-sidebar{
+
+    transition:.25s;
+
+}
+
+.retro-main{
+
+    transition:.25s;
+
+}
+
+.retro-sidebar.collapsed{
+
+    width:var(--retro-sidebar-collapsed);
+
+}
+
+.retro-sidebar.collapsed + .retro-main{
+
+    margin-left:var(--retro-sidebar-collapsed);
+
+}
+
+.retro-sidebar.collapsed .retro-sidebar__link{
+
+    font-size:0;
+
+    padding-left:0;
+
+    text-align:center;
+
+}
+
+.retro-sidebar.collapsed .retro-sidebar__link::before{
+
+    content:"•";
+
+    font-size:18px;
+
+}
