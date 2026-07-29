@@ -5,7 +5,7 @@
 :root {
   --retro-ink: #1c2b3a;               /* texto principal */
   --retro-steel: #2f5d8a;             /* azul principal (links, marca) */
-  --retro-steel-soft: #6a97bf;        /* azul secundario (labels, hover) */
+  --retro-steel-soft: #6a97bf;        /* azul secundario (3ls, hover) */
   --retro-amber: #c9891f;             /* acento activo, tipo "flag" clásico */
   --retro-line: rgba(47, 93, 138, 0.25);   /* líneas divisorias, casi invisibles */
   --retro-paper: rgba(47, 93, 138, 0.06);  /* fondo translúcido solo en hover/activo */
@@ -29,7 +29,6 @@
 .retro-sidebar{
     position:fixed;
     inset:0 auto 0 0;
-
     width:var(--retro-sidebar-width);
 
     display:flex;
