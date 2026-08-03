@@ -40,21 +40,21 @@
                     <h2 class="texto-normal section-title">Integrantes del desarrollo:</h2>
                     
                     <div class="team-container">
-                        <div class="team-member">
+                       <div>
                             <div class="avatar-wrapper">
                                 <img src="{{asset('imgBoo/yuliano.jpg')}}" alt="Yuliano Sisterna" class="avatar-img">
                             </div>
                             <p class="member-name">Yuliano<br>Sisterna</p>
                         </div>
 
-                        <div class="team-member">
+                        <div>
                             <div class="avatar-wrapper">
                                 <img src="{{asset('imgBoo/gianluca.jpg')}}" alt="Gianluca Ferrando" class="avatar-img">
                             </div>
                             <p class="member-name">Gianluca<br>Ferrando</p>
                         </div>
 
-                        <div class="team-member">
+                        <div>
                             <div class="avatar-wrapper">
                                 <img src="{{asset('imgBoo/benicio.jpg')}}" alt="Benicio Basualdo" class="avatar-img">
                             </div>
