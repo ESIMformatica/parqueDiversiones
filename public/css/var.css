@@ -1,0 +1,256 @@
+/* ==========================================
+   1. RESET Y BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0714;
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   2. NAVBAR SUPERIOR (Fijo)
+   ========================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #000000;
+    border-bottom: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding-left: 65px; /* Espacio para no encimarse con la hamburguesa */
+    z-index: 100;
+}
+
+.navbar-title {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   3. BOTÓN HAMBURGUESA FIJO (SIEMPRE VISIBLE)
+   ========================================== */
+.sidebar-checkbox {
+    display: none; /* Ocultamos el checkbox */
+}
+
+.fixed-menu-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 110; /* Por encima de todo para que siempre puedas hacerle click */
+    border-right: 1px solid #333333;
+    border-bottom: 2px solid #ffffff;
+    transition: background-color 0.2s;
+}
+
+.fixed-menu-button:hover {
+    background-color: #222222;
+}
+
+.hamburger-icon {
+    font-size: 1.8rem;
+    color: #ffffff;
+    line-height: 1;
+}
+
+/* ==========================================
+   4. SIDEBAR LATERAL Y CONTENIDO
+   ========================================== */
+.sidebar {
+    position: fixed;
+    top: 50px; /* Justo debajo del Navbar */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 50px);
+    background-color: rgba(13, 13, 13, 0.70); 
+    backdrop-filter: blur(5px); /* Efecto desfoque de cristal muy elegante */
+    z-index: 95;
+    transition: transform 0.3s ease-in-out;
+    padding: 10px 10px 0px 10px;
+}
+
+/* MARCO PERSONALIZADO */
+.sidebar-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid #8b6b23; /* Cambiar por tu border-image si usas un PNG */
+    pointer-events: none;
+    z-index: 5;
+}
+
+/*USAR CON LA IMAGEN CORREGIDA DE MARCO*/
+/* .sidebar-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+     Fondo con tu imagen de marco 
+    background-image: url('../imgBoo/barra.png'); 
+    background-size: 100% 100%;  Hace que la imagen se estire para cubrir exactamente todo el sidebar 
+    background-repeat: no-repeat;
+    
+    pointer-events: none;  Permite hacer clic a los botones que quedan debajo 
+    z-index: 5;
+} */
+
+.sidebar-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px 10px 0px 10px;
+}
+
+.sidebar-header {
+    padding: 5px 10px;
+}
+
+/*Clase para el menú como solo texto, no botón para redirigir*/
+/* .menu-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+} */
+
+/* TEXTO DEL MENÚ COMO ENLACE */
+.menu-text-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none; /* Quita el subrayado predeterminado del enlace */
+    display: inline-block;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* EFECTO HOVER (OPCIONAL: le da una suave retroalimentación al pasar el mouse) */
+.menu-text-link:hover {
+    color: #ffd026; /* Color dorado al pasar el cursor (o déjalo en #ffffff si prefieres que no cambie nada) */
+}
+
+.sidebar-divider {
+    border: 0;
+    height: 1px;
+    background: #444444;
+    margin: 10px 0 15px 0;
+    flex-shrink: 0;
+}
+
+/* LISTA DE ATRACCIONES */
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar-nav a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.sidebar-nav a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-nav a.active {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #222222;
+    border-left: 4px solid #ffd026;
+}
+
+/* LUIGI */
+.sidebar-footer-img {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.luigi-avatar {
+    max-width: 90px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
+    opacity: 0.4; /* 0.6 es un 60% de opacidad (40% transparente). Ajusta este valor a tu gusto */
+    transition: opacity 0.3s ease; /* Opcional: para que se aplique suavemente */
+}
+
+/* Opcional: Si quieres que al pasar el ratón por encima se vuelva 100% visible */
+/* .luigi-avatar:hover {
+    opacity: 1;
+} */
+/* ==========================================
+   5. LÓGICA DE APERTURA / COLAPSO
+   ========================================== */
+
+/* SI NO ESTÁ MARCADO: Esconde el sidebar totalmente hacia la izquierda */
+.sidebar-checkbox:not(:checked) + .fixed-menu-button + .sidebar {
+    transform: translateX(-100%);
+}
+
+/* SI ESTÁ MARCADO: Desliza el sidebar hacia adentro */
+.sidebar-checkbox:checked + .fixed-menu-button + .sidebar {
+    transform: translateX(0);
+}
+
+/* ==========================================
+   6. CONTENEDOR DEL CONTENIDO
+   ========================================== */
+.main-wrapper {
+    margin-top: 50px;
+    min-height: calc(100vh - 50px);
+}
+
+/* ==========================================
+   7. CAPA OVERLAY PARA CERRAR AL TOCAR AFUERA
+   ========================================== */
+.sidebar-overlay {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    background-color: rgba(0, 0, 0, 0.4); /* Oscurece ligeramente el fondo al abrir el menú */
+    z-index: 92; /* Queda justo detrás del sidebar (z-index: 95) y sobre el contenido */
+    opacity: 0;
+    pointer-events: none; /* Desactivado cuando el menú está cerrado */
+    transition: opacity 0.3s ease;
+}
+
+/* Cuando el sidebar está abierto (checked): Activamos la capa overlay */
+.sidebar-checkbox:checked ~ .sidebar-overlay {
+    opacity: 1;
+    pointer-events: auto; /* Activa los clicks en la capa para cerrar el menú */
+}

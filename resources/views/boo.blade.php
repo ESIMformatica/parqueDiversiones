@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boo's Pathway</title>
-    <link rel="stylesheet" href="{{asset('css/booStyle.css')}}">
+    <!-- <title>Boo's Pathway</title> -->
+
+    @extends('layouts.var')
+
+    @section('title', "Boo's Pathway - Feria")
+
+    @section('attraction_title', "Boo's Pathway")
+
+    @section('page_id', 'boo')
+
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css/booStyle.css') }}">
+    @endpush
+
     <meta name="theme-color" content="#0d0714">
 </head>
 <body>
+    @section('content')
 
     <div class="parallax-wrapper">
         
@@ -68,5 +81,7 @@
                 </footer>
             </section>
 
-        </div> </div> </body>
+        </div> </div> 
+    @endsection
+</body>
 </html>
