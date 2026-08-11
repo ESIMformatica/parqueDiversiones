@@ -1,0 +1,23 @@
+:root {
+  --bg: #171821;
+  --panel: #282a3b;
+  --panel-soft: #35384c;
+  --cream: #fff1d6;
+  --ink: #20202a;
+
+  --green: #7ed957;
+  --orange: #ff8a30;
+  --purple: #7556f5;
+  --blue: #4db8ff;
+  --pink: #ef5aa8;
+  --yellow: #ffd34e;
+  --red: #ff5b5b;
+  --cyan: #52e0d1;
+
+  --topbar-height: 68px;
+  --sidebar-width: 226px;
+  --sidebar-collapsed-width: 66px;
+
+  --fast: 150ms ease;
+  --smooth: 260ms cubic-bezier(.2, .8, .2, 1);
+}

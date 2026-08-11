@@ -1,0 +1,10 @@
+.sidebar-overlay {
+  position: fixed;
+  inset: var(--topbar-height) 0 0;
+  z-index: 850;
+
+  display: none;
+
+  background: rgba(10,10,18,.58);
+  backdrop-filter: blur(2px);
+}

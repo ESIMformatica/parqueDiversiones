@@ -1,0 +1,266 @@
+.sidebar {
+  position: fixed;
+  top: var(--topbar-height);
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+
+  width: var(--sidebar-width);
+  padding: 13px 11px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(180deg, #302f4f, var(--panel));
+  border-right: 3px solid var(--ink);
+
+  overflow: hidden;
+
+  transition:
+    width var(--smooth),
+    transform var(--smooth);
+}
+
+.sidebar-header {
+  min-height: 38px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.sidebar-title {
+  padding: 7px 10px;
+
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  border-radius: 9px 4px 9px 4px;
+
+  font-family: "Bowlby One SC", sans-serif;
+  font-size: .66rem;
+  white-space: nowrap;
+
+  transform: rotate(-1deg);
+
+  transition:
+    opacity var(--fast),
+    transform var(--smooth);
+}
+
+.sidebar-collapse {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  flex: 0 0 30px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--ink);
+  background: var(--green);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--smooth),
+    background-color var(--fast);
+}
+
+.sidebar-collapse:hover {
+  background: var(--orange);
+  transform: scale(1.08);
+}
+
+.sidebar-collapse span {
+  font-size: 1.25rem;
+  line-height: 1;
+
+  transition: transform var(--smooth);
+}
+
+.sidebar-menu {
+  display: grid;
+  gap: 5px;
+}
+
+.sidebar-item {
+  position: relative;
+
+  min-height: 43px;
+  padding: 5px 7px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--cream);
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 10px 5px 10px 5px;
+
+  font-size: .83rem;
+  font-weight: 800;
+
+  box-shadow: none;
+
+  transition:
+    background-color var(--fast),
+    border-color var(--fast),
+    transform var(--smooth);
+}
+
+.sidebar-item::before {
+  content: "";
+
+  position: absolute;
+  inset: 7px auto 7px 0;
+
+  width: 3px;
+
+  background: transparent;
+  border-radius: 0 999px 999px 0;
+
+  transition: background-color var(--fast);
+}
+
+.sidebar-item:hover {
+  background: rgba(255,255,255,.08);
+  transform: translateX(3px);
+}
+
+.sidebar-item.active {
+  color: var(--ink);
+  background: var(--green);
+  border-color: var(--ink);
+}
+
+.sidebar-item.active::before {
+  background: var(--orange);
+}
+
+.sidebar-icon {
+  width: 31px;
+  height: 31px;
+
+  flex: 0 0 31px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--ink);
+  border: 2px solid var(--ink);
+
+  transition:
+    transform var(--smooth),
+    border-radius var(--smooth);
+}
+
+.sidebar-icon svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sidebar-item:hover .sidebar-icon {
+  transform: rotate(6deg) scale(1.06);
+  border-radius: 50%;
+}
+
+.icon-home {
+  background: var(--green);
+  border-radius: 8px 4px 8px 4px;
+}
+
+.icon-rides {
+  background: var(--orange);
+  border-radius: 50%;
+}
+
+.icon-map {
+  background: var(--blue);
+  border-radius: 4px 9px 4px 9px;
+}
+
+.icon-tickets {
+  background: var(--yellow);
+  border-radius: 9px 3px 9px 3px;
+}
+
+.icon-hours {
+  background: var(--cyan);
+  border-radius: 50%;
+}
+
+.icon-news {
+  background: var(--purple);
+  border-radius: 7px;
+}
+
+.icon-help {
+  background: var(--pink);
+  border-radius: 50% 35% 50% 35%;
+}
+
+.icon-contact {
+  background: var(--red);
+  border-radius: 4px;
+}
+
+.sidebar-label {
+  min-width: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition:
+    opacity var(--fast),
+    transform var(--smooth);
+}
+
+.sidebar-card {
+  margin-top: auto;
+  padding: 9px 10px;
+
+  display: grid;
+  gap: 2px;
+
+  color: var(--ink);
+  background: var(--orange);
+  border: 2px solid var(--ink);
+  border-radius: 7px 12px 7px 12px;
+
+  font-size: .72rem;
+
+  transform: rotate(1deg);
+
+  transition:
+    opacity var(--fast),
+    transform var(--smooth),
+    visibility var(--fast);
+}
+
+.sidebar-card span {
+  font-size: .6rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.sidebar-card a {
+  margin-top: 4px;
+  font-size: .65rem;
+  font-weight: 900;
+  text-decoration: underline;
+}
