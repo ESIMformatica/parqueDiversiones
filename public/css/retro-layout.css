@@ -1,221 +1,378 @@
 /* ============================================================
-   Tokens del tema retro (principios de los 2000, adaptado a hoy)
-   Tocá solo esta sección para cambiar el look del layout entero.
+   Tokens del layout — heredan la paleta Wii de mirrorstyle.css.
+   Si mirrorstyle.css no está cargado, usan los valores de respaldo.
+   Tocá solo esta sección para cambiar el look del sidebar.
    ============================================================ */
 :root {
-  --retro-ink: #1c2b3a;               /* texto principal */
-  --retro-steel: #2f5d8a;             /* azul principal (links, marca) */
-  --retro-steel-soft: #6a97bf;        /* azul secundario (labels, hover) */
-  --retro-amber: #c9891f;             /* acento activo, tipo "flag" clásico */
-  --retro-line: rgba(47, 93, 138, 0.25);   /* líneas divisorias, casi invisibles */
-  --retro-paper: rgba(47, 93, 138, 0.06);  /* fondo translúcido solo en hover/activo */
+  --retro-ink: var(--ink, #4c6675);
+  --retro-ink-soft: var(--ink-soft, #7a94a1);
+  --retro-blue: var(--blue, #00a2e8);
+  --retro-blue-dark: var(--blue-dark, #0082c8);
+  --retro-blue-deep: var(--blue-deep, #0069a8);
+  --retro-white: var(--white, #ffffff);
+  --retro-border: var(--border, #bcdcec);
+  --retro-border-hover: var(--border-hover, #73c7ef);
 
-  --retro-font-display: 'Space Grotesk', 'Trebuchet MS', sans-serif;
-  --retro-font-body: 'IBM Plex Sans', Arial, sans-serif;
-  --retro-font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --retro-font: var(--font-display, 'Fredoka', sans-serif);
+  --retro-ease: var(--ease-wii, cubic-bezier(.34, 1.56, .64, 1));
 
-  --retro-sidebar-width:190px;
-  --retro-sidebar-collapsed:64px;
+  --retro-sidebar-width: 210px;
+  --retro-sidebar-collapsed: 72px;
 }
 
 /* ============================================================
    Estructura general: sidebar fijo + contenido con margen
    ============================================================ */
 .retro-shell {
-  font-family: var(--retro-font-body);
   color: var(--retro-ink);
 }
 
-.retro-sidebar{
-    position:fixed;
-    inset:0 auto 0 0;
+/* mirrorstyle.css aplica font-family a todos los elementos con "*",
+   así que el sidebar lo fija explícitamente para no perder su tipografía */
+.retro-sidebar,
+.retro-sidebar * {
+  font-family: var(--retro-font);
+}
 
-    width:var(--retro-sidebar-width);
+.retro-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 900;
 
-    display:flex;
-    flex-direction:column;
+  width: var(--retro-sidebar-width);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 14px 12px;
+  overflow-x: hidden;
+  overflow-y: auto;
 
-  background: rgba(250,250,250,.92);
-  backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .94), rgba(223, 244, 255, .94));
+  backdrop-filter: blur(8px);
+  border-right: 2px solid var(--retro-border);
+  box-shadow: 3px 0 12px rgba(60, 110, 140, .10), inset -2px 0 0 rgba(255, 255, 255, .9);
 
-    border-right:1px solid var(--retro-line);
-
-    transition:.25s;
+  transition: width .25s ease;
 }
 
 .retro-main {
   margin-left: var(--retro-sidebar-width);
   min-height: 100vh;
+  transition: margin-left .25s ease;
 }
 
 .retro-main__header {
   padding: 20px 32px;
-  border-bottom: 1px solid var(--retro-line);
+  border-bottom: 1px solid var(--retro-border);
 }
 
+/* Cada página trae su propio espaciado (como en el diseño original de
+   MirrorMaze), así que este contenedor no agrega ancho, margen ni padding.
+   Esto también anula el estilo global "main" de mirrorstyle.css. */
 .retro-main__content {
-  padding: 28px 32px;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
-.retro-sidebar__title::after {
-  content: "";
-  display: block;
-  margin-top: 12px;
-  height: 1px;
-  background: var(--retro-line);
-  box-shadow: 0 2px 0 -1px rgba(47, 93, 138, 0.12); /* doble filete sutil, guiño retro */
+/* ============================================================
+   Cabecera del sidebar: botón + marca
+   ============================================================ */
+.retro-sidebar__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--retro-border);
+}
+
+.retro-toggle {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--retro-white);
+  box-shadow: 0 6px 18px rgba(60, 110, 140, .14), inset 0 2px 0 rgba(255, 255, 255, .9);
+  color: var(--retro-blue-dark);
+  font-size: 18px;
+  cursor: url("../cursores/wii-open.cur"), pointer;
+  transition: transform .2s var(--retro-ease);
+}
+
+.retro-toggle:hover {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+.retro-toggle:focus-visible,
+.retro-sidebar__link:focus-visible,
+.retro-sidebar__sublink:focus-visible {
+  outline: 3px solid var(--retro-blue);
+  outline-offset: 2px;
+}
+
+.retro-sidebar__brand {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--retro-blue);
+  text-shadow: 0 1px var(--retro-white);
+  white-space: nowrap;
 }
 
 /* ============================================================
    Navegación
    ============================================================ */
-.retro-sidebar__section + .retro-sidebar__section {
-  margin-top: 20px;
-}
-
-.retro-sidebar__label {
-  font-family: var(--retro-font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--retro-steel-soft);
-  margin: 0 0 6px;
-}
-
 .retro-sidebar__list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .retro-sidebar__link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   width: 100%;
+  padding: 7px 12px 7px 8px;
   text-align: left;
-  background: none;
-  border: none;
-  border-left: 2px solid transparent;
-  border-radius: 0; /* los bordes de un solo lado no llevan radius */
-  padding: 6px 10px 6px 8px;
-  font-family: var(--retro-font-body);
-  font-size: 14px;
-  color: var(--retro-ink);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--retro-blue-dark);
+  background: rgba(255, 255, 255, .6);
+  border: 1px solid transparent;
+  border-radius: 999px;
   text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.12s ease, border-color 0.12s ease;
-}
-
-.retro-sidebar__marker {
-  display: inline-block;
-  width: 14px;
-  color: var(--retro-steel-soft);
-  transition: color 0.12s ease;
+  cursor: url("../cursores/wii-open.cur"), pointer;
+  transition: transform .2s var(--retro-ease), background-color .2s ease,
+              border-color .2s ease, box-shadow .2s ease;
 }
 
 .retro-sidebar__link:hover {
-  background: var(--retro-paper);
+  background: var(--retro-white);
+  border-color: var(--retro-border-hover);
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+.retro-sidebar__link:active,
+.retro-sidebar__sublink:active {
+  transform: scale(.97);
+  cursor: url("../cursores/wii-grab.cur"), grabbing;
 }
 
 .retro-sidebar__link.is-active {
-  background: var(--retro-paper);
-  border-left-color: var(--retro-amber);
-  font-weight: 500;
+  background: linear-gradient(180deg, var(--retro-white), #d6f2ff);
+  border-color: var(--retro-blue);
+  color: var(--retro-blue-deep);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .9), 0 3px 8px rgba(0, 120, 190, .18);
 }
 
-.retro-sidebar__link.is-active .retro-sidebar__marker {
-  color: var(--retro-amber);
+/* mirrorstyle.css pone su cursor en <span>; acá heredan el del enlace */
+.retro-sidebar a *,
+.retro-sidebar button * {
+  cursor: inherit;
+}
+
+.retro-sidebar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--retro-white);
+  box-shadow: 0 2px 5px rgba(60, 110, 140, .18), inset 0 2px 0 rgba(255, 255, 255, .9);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.retro-sidebar__text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retro-sidebar__caret {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--retro-ink-soft);
+  transition: transform .25s var(--retro-ease);
+}
+
+.retro-sidebar__group.is-open .retro-sidebar__caret {
+  transform: rotate(180deg);
+}
+
+/* ---------- Submenú "Atracciones" (desplegable) ---------- */
+.retro-sidebar__sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows .3s ease, visibility 0s linear .3s;
+}
+
+.retro-sidebar__group.is-open .retro-sidebar__sub {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows .3s ease, visibility 0s;
+}
+
+.retro-sidebar__sublist {
+  min-height: 0;
+  overflow: hidden;
+  list-style: none;
+  margin: 0 0 0 22px;
+  padding: 0;
+  border-left: 2px solid var(--retro-border);
+}
+
+.retro-sidebar__sublist > li {
+  padding-left: 8px;
+  margin-top: 4px;
+}
+
+.retro-sidebar__sublist > li:first-child {
+  margin-top: 6px;
+}
+
+.retro-sidebar__sublink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px 5px 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--retro-ink);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: url("../cursores/wii-open.cur"), pointer;
+  transition: transform .2s var(--retro-ease), background-color .2s ease, border-color .2s ease;
+}
+
+.retro-sidebar__sublink .retro-sidebar__icon {
+  width: 24px;
+  height: 24px;
+  font-size: 13px;
+}
+
+.retro-sidebar__sublink:hover {
+  background: rgba(255, 255, 255, .85);
+  border-color: var(--retro-border-hover);
+  color: var(--retro-blue-dark);
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+.retro-sidebar__sublink.is-active {
+  background: linear-gradient(180deg, var(--retro-white), #d6f2ff);
+  border-color: var(--retro-blue);
+  color: var(--retro-blue-deep);
 }
 
 /* ============================================================
-   Responsive: por debajo de 768px el sidebar pasa a barra superior
+   Sidebar contraído: solo íconos
+   ============================================================ */
+.retro-sidebar.collapsed {
+  width: var(--retro-sidebar-collapsed);
+}
+
+.retro-sidebar.collapsed + .retro-main {
+  margin-left: var(--retro-sidebar-collapsed);
+}
+
+.retro-sidebar.collapsed .retro-sidebar__brand,
+.retro-sidebar.collapsed .retro-sidebar__text,
+.retro-sidebar.collapsed .retro-sidebar__caret,
+.retro-sidebar.collapsed .retro-sidebar__sub {
+  display: none;
+}
+
+.retro-sidebar.collapsed .retro-sidebar__head {
+  justify-content: center;
+}
+
+.retro-sidebar.collapsed .retro-sidebar__link {
+  justify-content: center;
+  padding: 6px;
+}
+
+.retro-sidebar.collapsed .retro-sidebar__link:hover {
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   Página de inicio ("Bienvenido a ESIMPark")
+   Usa el estilo de tarjeta que mirrorstyle.css da a <section>
+   ============================================================ */
+.inicio-page {
+  position: relative;
+  z-index: 1;
+  width: 92%;
+  max-width: 1200px;
+  min-height: calc(100vh - 80px);
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+}
+
+.retro-main .inicio-welcome {
+  width: 100%;
+  margin-top: 0;
+  padding: 72px 32px;
+  text-align: center;
+}
+
+.inicio-welcome h1 {
+  font-family: var(--retro-font);
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--retro-blue);
+  text-shadow: 0 1px var(--retro-white), 0 2px #dff4ff, 0 0 18px var(--retro-white);
+}
+
+/* ============================================================
+   Responsive: por debajo de 768px el sidebar pasa a ser una
+   barra superior; el botón ☰ muestra u oculta el menú.
    ============================================================ */
 @media (max-width: 768px) {
-  .retro-sidebar {
+  .retro-sidebar,
+  .retro-sidebar.collapsed {
     position: static;
     width: auto;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    overflow-x: auto;
+    gap: 12px;
+    padding: 12px 14px;
     border-right: none;
-    border-bottom: 1px solid var(--retro-line);
-    padding: 14px 18px;
+    border-bottom: 2px solid var(--retro-border);
+    box-shadow: 0 3px 8px rgba(60, 110, 140, .10);
   }
 
-  .retro-sidebar__nav {
-    display: flex;
-    gap: 18px;
+  .retro-sidebar.collapsed .retro-sidebar__nav {
+    display: none;
   }
 
-  .retro-sidebar__section + .retro-sidebar__section {
-    margin-top: 0;
+  .retro-sidebar.collapsed .retro-sidebar__brand {
+    display: inline;
   }
 
-  .retro-sidebar__list {
-    display: flex;
-    gap: 4px;
+  .retro-sidebar.collapsed .retro-sidebar__head {
+    justify-content: flex-start;
   }
 
-  .retro-main {
+  .retro-main,
+  .retro-sidebar.collapsed + .retro-main {
     margin-left: 0;
   }
-}
 
-.retro-toggle{
-
-    width:42px;
-    height:42px;
-
-    margin:8px auto 24px;
-
-    border:1px solid var(--retro-line);
-
-    background:none;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-}
-
-.retro-sidebar{
-
-    transition:.25s;
-
-}
-
-.retro-main{
-
-    transition:.25s;
-
-}
-
-.retro-sidebar.collapsed{
-
-    width:var(--retro-sidebar-collapsed);
-
-}
-
-.retro-sidebar.collapsed + .retro-main{
-
-    margin-left:var(--retro-sidebar-collapsed);
-
-}
-
-.retro-sidebar.collapsed .retro-sidebar__link{
-
-    font-size:0;
-
-    padding-left:0;
-
-    text-align:center;
-
-}
-
-.retro-sidebar.collapsed .retro-sidebar__link::before{
-
-    content:"•";
-
-    font-size:18px;
-
+  .inicio-welcome h1 {
+    font-size: 34px;
+  }
 }
