@@ -1,0 +1,131 @@
+/* ==========================================================================
+   EMPIRE STATE & KING KONG — PALETA ARQUITECTÓNICA PIEDRA CALIZA (CREMA)
+   Diseño editorial limpio: sin gradientes artificiales, sin brillos neón.
+   ========================================================================== */
+
+:root {
+    /* Piedra Caliza Indiana (Indiana Limestone) — Tonos Crema y Arena */
+    --stone-bg: #f4efe6;
+    --stone-surface: #ebe4d6;
+    --stone-panel: #e2d9c8;
+    --stone-recessed: #d6cbb8;
+    --stone-paper: #faf7f2;
+
+    /* Juntas de mampostería y bordes estructurales */
+    --mortar-line: #c4b7a1;
+    --mortar-strong: #9e907a;
+    --steel-mullion: #5c564e;
+    --iron-frame: #23201d;
+
+    /* Tinta tipográfica y acentos sobrios Art Déco / King Kong */
+    --ink-primary: #1e1b18;
+    --ink-secondary: #4a443c;
+    --ink-muted: #736a5e;
+    --accent-brass: #8c6d32;
+    --accent-brass-light: #dfd2b5;
+    --accent-terracotta: #8a3324;
+
+    /* Tipografías editoriales y técnicas */
+    --font-serif: "Cormorant Garamond", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", "Nunito", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Ajuste del contenedor principal cuando estamos en la vista Fall */
+.fall-facade-shell {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    background-color: var(--stone-bg);
+    color: var(--ink-primary);
+    border: 2px solid var(--iron-frame);
+    font-family: var(--font-sans);
+    /* Líneas horizontales de sillares de piedra caliza cada 72px */
+    background-image:
+        linear-gradient(to bottom, var(--mortar-line) 1px, transparent 1px);
+    background-size: 100% 72px;
+}
+
+/* Barra superior de cornisa del edificio */
+.facade-cornice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    background-color: var(--iron-frame);
+    color: var(--stone-bg);
+    border-bottom: 2px solid var(--accent-brass);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.facade-cornice-coords {
+    color: var(--accent-brass-light);
+}
+
+/* Estructura interna con riel de descenso a la izquierda y muros a la derecha */
+.facade-body-grid {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    position: relative;
+}
+
+/* Contenido principal sobre los muros de piedra caliza */
+.facade-wall-content {
+    position: relative;
+    border-left: 2px solid var(--iron-frame);
+    background-color: rgba(244, 239, 230, 0.92);
+}
+
+/* Molduras divisorias entre pisos del edificio */
+.floor-spandrel-divider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 36px;
+    background-color: var(--stone-recessed);
+    border-top: 2px solid var(--iron-frame);
+    border-bottom: 2px solid var(--iron-frame);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-secondary);
+}
+
+.floor-spandrel-divider span:last-child {
+    color: var(--accent-terracotta);
+}
+
+/* Utilidades tipográficas editoriales */
+.editorial-kicker {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-terracotta);
+    margin-bottom: 10px;
+}
+
+.editorial-heading {
+    margin: 0 0 16px;
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--ink-primary);
+}
+
+.editorial-lead {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--ink-secondary);
+    font-weight: 400;
+}
