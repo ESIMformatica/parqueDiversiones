@@ -1,4 +1,4 @@
-<x-layout.app title="Mirror Maze">
+<x-layout.appMirror title="Mirror Maze">
 
 <x-slot:head>
 
@@ -339,4 +339,4 @@
 
     <script src="{{ asset('js/mirror.js') }}"></script>
 
-</x-layout.app>
+</x-layout.appMirror>
