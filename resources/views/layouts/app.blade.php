@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>@yield('title', 'Web Fun Park')</title>
+    <title>@yield('title', 'ESIMPark')</title>
 
 
     <!-- Fuentes -->
