@@ -75,3 +75,33 @@ window.addEventListener('resize', () => {
         closeMobileSidebar();
     }
 });
+
+
+const contactToggle = document.querySelector('.sidebar-contact-toggle');
+const contactSubmenu = document.querySelector('#submenu-contacto');
+
+if (contactToggle && contactSubmenu) {
+    contactToggle.addEventListener('click', function () {
+        const isExpanded = contactToggle.getAttribute('aria-expanded') === 'true';
+
+        contactToggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        contactSubmenu.hidden = isExpanded;
+    });
+}
+
+const attractionToggle = document.querySelector('.sidebar-toggle');
+const attractionSubmenu = document.querySelector('#submenu-atracciones');
+
+if (attractionToggle && attractionSubmenu) {
+    attractionToggle.addEventListener('click', function () {
+        const isExpanded =
+            attractionToggle.getAttribute('aria-expanded') === 'true';
+
+        attractionToggle.setAttribute(
+            'aria-expanded',
+            isExpanded ? 'false' : 'true'
+        );
+
+        attractionSubmenu.hidden = isExpanded;
+    });
+}

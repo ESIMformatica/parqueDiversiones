@@ -23,5 +23,6 @@ Route::get('/carousel', [CarrouselController::class, 'index'])->name('carousel')
 Route::get('/pirate', [PirateController::class, 'index'])->name('pirate');
 Route::get('/worm', [WormController::class, 'index'])->name('worm');
 Route::get('/kamikaze', [KamikazeController::class, 'index'])->name('kamikaze');
-Route::view('/', 'pages.inicio');
-Route::view('/prueba', 'pages.prueba');
+Route::view('/', 'pages.inicio')->name('inicio');
+Route::view('/preguntas-frecuentes', 'pages.preguntas')
+    ->name('preguntas');
