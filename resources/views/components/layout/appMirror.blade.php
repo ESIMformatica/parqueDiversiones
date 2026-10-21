@@ -35,7 +35,7 @@
 
 <body class="retro-shell">
 
-    <x-layout.sidebar />
+    <x-layout.sidebarmirror />
 
     <div class="retro-main">
 
