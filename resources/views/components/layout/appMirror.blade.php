@@ -51,7 +51,7 @@
 
     </div>
 
-    <script src="{{ asset('js/sidebar.js') }}"></script>
+    <script src="{{ asset('js/sidebarmirror.js') }}"></script>
     
 </body>
 
