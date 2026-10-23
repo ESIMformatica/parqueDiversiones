@@ -1,0 +1,447 @@
+
+/* SIDEBAR PRINCIPAL */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+
+    width: var(--sidebar-width);
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 13px 11px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(180deg, #302f4f, var(--panel));
+    border-right: 3px solid var(--ink);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    transition:
+        width var(--smooth),
+        transform var(--smooth);
+}
+
+/* ENCABEZADO */
+.sidebar-header {
+    min-height: 38px;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+.sidebar-title {
+    padding: 7px 10px;
+
+    color: var(--ink);
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 9px 4px 9px 4px;
+
+    font-family: "Bowlby One SC", sans-serif;
+    font-size: .66rem;
+    white-space: nowrap;
+
+    transform: rotate(-1deg);
+
+    transition:
+        opacity var(--fast),
+        transform var(--smooth);
+}
+
+/* BOTÓN PARA CONTRAER */
+.sidebar-collapse {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    flex: 0 0 30px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--ink);
+    background: var(--green);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--smooth),
+        background-color var(--fast);
+}
+
+.sidebar-collapse:hover {
+    background: var(--orange);
+    transform: scale(1.08);
+}
+
+.sidebar-collapse span {
+    font-size: 1.25rem;
+    line-height: 1;
+
+    transition: transform var(--smooth);
+}
+
+/* MENÚ */
+.sidebar-menu {
+    display: grid;
+    align-content: start;
+    gap: 5px;
+    min-width: 0;
+}
+
+.sidebar-group {
+    min-width: 0;
+}
+
+/* ELEMENTOS PRINCIPALES */
+.sidebar-item {
+    position: relative;
+
+    width: 100%;
+    min-height: 43px;
+    box-sizing: border-box;
+    padding: 5px 7px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--cream);
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 10px 5px 10px 5px;
+
+    font-family: inherit;
+    font-size: .83rem;
+    font-weight: 800;
+    text-align: left;
+    text-decoration: none;
+
+    box-shadow: none;
+    cursor: pointer;
+
+    transition:
+        background-color var(--fast),
+        border-color var(--fast),
+        transform var(--smooth);
+}
+
+.sidebar-item::before {
+    content: "";
+
+    position: absolute;
+    inset: 7px auto 7px 0;
+    width: 3px;
+
+    background: transparent;
+    border-radius: 0 999px 999px 0;
+
+    transition: background-color var(--fast);
+}
+
+.sidebar-item:hover {
+    background: rgba(255, 255, 255, .08);
+    transform: translateX(3px);
+}
+
+.sidebar-item.active {
+    color: var(--ink);
+    background: var(--green);
+    border-color: var(--ink);
+}
+
+.sidebar-item.active::before {
+    background: var(--orange);
+}
+
+/* ÍCONOS */
+.sidebar-icon {
+    width: 31px;
+    height: 31px;
+    flex: 0 0 31px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--ink);
+    border: 2px solid var(--ink);
+
+    transition:
+        transform var(--smooth),
+        border-radius var(--smooth);
+}
+
+.sidebar-icon svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sidebar-item:hover .sidebar-icon {
+    transform: rotate(6deg) scale(1.06);
+    border-radius: 50%;
+}
+
+.icon-rides {
+    background: var(--orange);
+    border-radius: 50%;
+}
+
+.icon-help {
+    background: var(--pink);
+    border-radius: 50% 35% 50% 35%;
+}
+
+.icon-contact {
+    background: var(--red);
+    border-radius: 4px;
+}
+
+/* TEXTO */
+.sidebar-label {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition:
+        opacity var(--fast),
+        transform var(--smooth);
+}
+
+/* FLECHA DEL DESPLEGABLE */
+.sidebar-chevron {
+    margin-left: auto;
+    flex: 0 0 auto;
+
+    font-size: 1rem;
+    line-height: 1;
+
+    transition: transform var(--smooth);
+}
+
+.sidebar-toggle[aria-expanded="true"] .sidebar-chevron {
+    transform: rotate(180deg);
+}
+
+/* SUBMENÚ DE ATRACCIONES */
+.sidebar-submenu {
+    display: grid;
+    gap: 4px;
+
+    margin: 5px 0 7px 40px;
+    padding-left: 10px;
+
+    border-left: 2px solid var(--green);
+}
+
+.sidebar-submenu[hidden] {
+    display: none;
+}
+
+/* ENLACES DE LAS ATRACCIONES */
+.sidebar-subitem {
+    display: block;
+    box-sizing: border-box;
+    padding: 8px 9px;
+
+    color: var(--cream);
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    font-size: .76rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        background-color var(--fast),
+        color var(--fast),
+        transform var(--fast);
+}
+
+.sidebar-subitem:hover {
+    color: var(--ink);
+    background: var(--green);
+    transform: translateX(3px);
+/* SIDEBAR CONTRAÍDA */
+body.sidebar-collapsed .sidebar {
+    width: var(--sidebar-collapsed-width, 64px);
+}
+
+body.sidebar-collapsed .sidebar-title,
+body.sidebar-collapsed .sidebar-label {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+body.sidebar-collapsed .sidebar-title {
+    transform: translateX(-14px);
+}
+
+body.sidebar-collapsed .sidebar-header {
+    min-height: 28px;
+    margin-bottom: 8px;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+}
+
+body.sidebar-collapsed .sidebar-collapse {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 5;
+
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+
+    border-width: 2px;
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+body.sidebar-collapsed .sidebar-collapse:hover {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.08);
+}
+
+body.sidebar-collapsed .sidebar-collapse span {
+    font-size: 1.05rem;
+    transform: rotate(180deg);
+}
+
+/* ELEMENTOS PRINCIPALES CONTRAÍDOS */
+body.sidebar-collapsed .sidebar-item {
+    width: 40px;
+    min-height: 40px;
+    margin-inline: auto;
+    padding: 3px;
+
+    justify-content: center;
+
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body.sidebar-collapsed .sidebar-item::before {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebar-item.active {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+body.sidebar-collapsed .sidebar-item.active .sidebar-icon {
+    outline: 2px solid var(--cream);
+    outline-offset: 2px;
+}
+
+body.sidebar-collapsed .sidebar-item:hover {
+    background: transparent;
+    transform: scale(1.05);
+}
+
+/* OCULTAR LOS SUBMENÚS AL CONTRAER */
+body.sidebar-collapsed .sidebar-submenu {
+    display: none;
+}
+
+body.sidebar-collapsed .sidebar-chevron {
+    display: none;
+}
+
+/* MANTENER VISIBLE EL BOTÓN DE EXPANSIÓN */
+body.sidebar-collapsed .sidebar {
+    overflow-x: visible;
+    overflow-y: auto;
+}
+
+body.sidebar-collapsed .sidebar-header {
+    overflow: visible;
+}
+
+/* TRANSICIÓN DEL ANCHO */
+.sidebar {
+    transition:
+        width var(--smooth),
+        transform var(--smooth);
+}
+
+/* AJUSTES PARA CELULARES */
+@media (max-width: 760px) {
+    body.sidebar-collapsed .sidebar {
+        width: var(--sidebar-width);
+    }
+
+    body.sidebar-collapsed .sidebar-title,
+    body.sidebar-collapsed .sidebar-label {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    body.sidebar-collapsed .sidebar-chevron {
+        display: block;
+    }
+}
+
+}
+
+.sidebar-subitem.active {
+    color: var(--ink);
+    background: var(--orange);
+    border-color: var(--ink);
+}
+
+/* PANTALLAS BAJAS */
+@media (max-height: 600px) {
+    .sidebar {
+        overflow-y: auto;
+    }
+}
+
+
+.sidebar-contact-info {
+    padding: 8px 12px 12px 48px;
+}
+
+.sidebar-contact-info p {
+    margin: 8px 0 4px;
+    font-size: 12px;
+}
+
+.sidebar-contact-info .sidebar-subitem {
+    display: block;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+    padding: 6px 0;
+}
+
+.sidebar-contact-toggle .sidebar-chevron {
+    transition: transform 0.2s ease;
+}
+
+.sidebar-contact-toggle[aria-expanded="true"] .sidebar-chevron {
+    transform: rotate(180deg);
+}

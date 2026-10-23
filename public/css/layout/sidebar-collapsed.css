@@ -1,0 +1,107 @@
+body.sidebar-collapsed .sidebar-title,
+body.sidebar-collapsed .sidebar-label,
+body.sidebar-collapsed .sidebar-card {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.sidebar-collapsed .sidebar-title,
+body.sidebar-collapsed .sidebar-card {
+  transform: translateX(-14px);
+}
+
+body.sidebar-collapsed .sidebar-header {
+  min-height: 28px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+body.sidebar-collapsed .sidebar-collapse {
+  width: 24px;
+  height: 24px;
+  flex-basis: 24px;
+
+  border-width: 2px;
+  opacity: 0.78;
+
+  transform: translateY(-2px);
+}
+
+body.sidebar-collapsed .sidebar-collapse:hover {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.08);
+}
+
+body.sidebar-collapsed .sidebar-collapse span {
+  font-size: 1rem;
+  transform: rotate(180deg);
+}
+
+body.sidebar-collapsed .sidebar-item {
+  width: 40px;
+  min-height: 40px;
+  margin-inline: auto;
+  padding: 3px;
+
+  justify-content: center;
+
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+
+  transform: none;
+}
+
+body.sidebar-collapsed .sidebar-item::before {
+  display: none;
+}
+
+body.sidebar-collapsed .sidebar-item.active {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+body.sidebar-collapsed .sidebar-item.active .sidebar-icon {
+  outline: 2px solid var(--cream);
+  outline-offset: 2px;
+}
+
+body.sidebar-collapsed .sidebar-item:hover {
+  background: transparent;
+  transform: scale(1.05);
+}
+
+/* Mantiene visible y accesible el control para volver a expandir. */
+body.sidebar-collapsed .sidebar {
+  overflow: visible;
+}
+
+body.sidebar-collapsed .sidebar-header {
+  position: relative;
+  overflow: visible;
+}
+
+body.sidebar-collapsed .sidebar-collapse {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 5;
+
+  width: 28px;
+  height: 28px;
+  flex-basis: 28px;
+
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+body.sidebar-collapsed .sidebar-collapse:hover {
+  transform: translateX(-50%) scale(1.08);
+}
+
+body.sidebar-collapsed .sidebar-collapse span {
+  font-size: 1.05rem;
+  transform: rotate(180deg);
+}
