@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/inicio', 'inicio')->name('inicio');
 Route::get('/mirror', [MirrorController::class, 'index'])->name('mirror');
 Route::get('/fall', [FallController::class, 'index'])->name('fall');
 Route::get('/roller', [RollerController::class, 'index'])->name('roller');
