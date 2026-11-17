@@ -89,33 +89,33 @@ body {
 }
 
 /* MARCO PERSONALIZADO */
-.sidebar-frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 10px solid #8b6b23; /* Cambiar por tu border-image si usas un PNG */
-    pointer-events: none;
-    z-index: 5;
-}
-
-/*USAR CON LA IMAGEN CORREGIDA DE MARCO*/
 /* .sidebar-frame {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    
-     Fondo con tu imagen de marco 
-    background-image: url('../imgBoo/barra.png'); 
-    background-size: 100% 100%;  Hace que la imagen se estire para cubrir exactamente todo el sidebar 
-    background-repeat: no-repeat;
-    
-    pointer-events: none;  Permite hacer clic a los botones que quedan debajo 
+    border: 10px solid #8b6b23; Cambiar por tu border-image si usas un PNG 
+    pointer-events: none;
     z-index: 5;
 } */
+
+/*USAR CON LA IMAGEN CORREGIDA DE MARCO*/
+.sidebar-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    /*Fondo con tu imagen de marco */
+    background-image: url('../imgBoo/barra2.png'); 
+    background-size: 100% 100%;  /*Hace que la imagen se estire para cubrir exactamente todo el sidebar*/
+    background-repeat: no-repeat;
+    
+    pointer-events: none;  /*Permite hacer clic a los botones que quedan debajo*/
+    z-index: 5;
+} 
 
 .sidebar-content {
     position: relative;
