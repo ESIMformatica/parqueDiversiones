@@ -11,7 +11,7 @@
         ['label' => 'Kamikaze',    'route' => 'kamikaze', 'icon' => '💥'],
     ];
 
-    $inicioActive  = Route::has('inicio') && request()->routeIs('inicio');
+    $inicioActive  = Route::has('inicio') && request()->routeIs('inicio', 'inicio.page');
     $inAttractions = request()->routeIs(...array_column($attractions, 'route'));
 @endphp
 
@@ -65,6 +65,41 @@
                     </ul>
                 </div>
             </li>
+
+            @auth
+                <li>
+                    <a href="{{ route('profile.edit') }}"
+                       class="retro-sidebar__link {{ request()->routeIs('profile.*') ? 'is-active' : '' }}"
+                       aria-label="Mi perfil: {{ Auth::user()->name }}">
+                        <span class="retro-sidebar__icon">👤</span>
+                        <span class="retro-sidebar__text">Mi perfil · {{ Auth::user()->name }}</span>
+                    </a>
+                </li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="retro-sidebar__link">
+                            <span class="retro-sidebar__icon">↪</span>
+                            <span class="retro-sidebar__text">Cerrar sesión</span>
+                        </button>
+                    </form>
+                </li>
+            @else
+                <li>
+                    <a href="{{ route('login') }}"
+                       class="retro-sidebar__link {{ request()->routeIs('login') ? 'is-active' : '' }}">
+                        <span class="retro-sidebar__icon">🔑</span>
+                        <span class="retro-sidebar__text">Iniciar sesión</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('register') }}"
+                       class="retro-sidebar__link {{ request()->routeIs('register') ? 'is-active' : '' }}">
+                        <span class="retro-sidebar__icon">＋</span>
+                        <span class="retro-sidebar__text">Crear cuenta</span>
+                    </a>
+                </li>
+            @endauth
 
         </ul>
     </nav>

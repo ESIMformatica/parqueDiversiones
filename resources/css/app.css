@@ -1,0 +1,568 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--park-ink: #1d302b;
+	--park-green: #1d5141;
+	--park-green-dark: #183b32;
+	--park-coral: #e85f3e;
+	--park-sun: #f4c35b;
+	--park-muted: #728078;
+	--park-line: #dce5df;
+}
+
+.park-login-page {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+	background: #fff;
+	color: var(--park-ink);
+	font-family: 'DM Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+.park-login-page *,
+.park-login-page *::before,
+.park-login-page *::after {
+	box-sizing: border-box;
+}
+
+.park-login {
+	display: grid;
+	grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+	min-height: 100vh;
+}
+
+.park-login__scene {
+	position: relative;
+	display: flex;
+	min-height: 720px;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+	isolation: isolate;
+	padding: 40px 48px 28px;
+	background: var(--park-green-dark);
+	color: #fff;
+}
+
+.park-login__photo,
+.park-login__scene-shade {
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.park-login__photo {
+	object-fit: cover;
+	object-position: 48% center;
+	animation: park-photo-arrive 900ms ease-out both;
+}
+
+.park-login__scene-shade {
+	background: linear-gradient(180deg, rgb(13 37 31 / 56%) 0%, rgb(13 37 31 / 5%) 35%, rgb(13 37 31 / 35%) 65%, rgb(13 37 31 / 90%) 100%), linear-gradient(90deg, rgb(13 37 31 / 34%), transparent 75%);
+}
+
+.park-login__brand {
+	display: inline-flex;
+	z-index: 1;
+	align-items: center;
+	align-self: flex-start;
+	gap: 12px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.park-login__brand-mark {
+	display: grid;
+	width: 45px;
+	height: 45px;
+	place-items: center;
+	border: 1px solid rgb(255 255 255 / 70%);
+	border-radius: 50%;
+	background: var(--park-sun);
+	color: var(--park-green-dark);
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size: 19px;
+	font-weight: 700;
+}
+
+.park-login__brand-name {
+	display: grid;
+	gap: 1px;
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size: 19px;
+	font-weight: 500;
+	line-height: 1;
+}
+
+.park-login__brand-name strong {
+	font-weight: 700;
+}
+
+.park-login__scene-copy {
+	max-width: 530px;
+	margin: auto 0 76px;
+	animation: park-copy-arrive 650ms 120ms ease-out both;
+}
+
+.park-login__scene-kicker,
+.park-login__eyebrow {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	margin: 0;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.park-login__scene-kicker {
+	color: #fff1ca;
+}
+
+.park-login__scene-kicker span,
+.park-login__eyebrow span {
+	width: 8px;
+	height: 8px;
+	flex: 0 0 auto;
+	border-radius: 50%;
+	background: var(--park-sun);
+}
+
+.park-login__scene-copy h1 {
+	margin: 20px 0 15px;
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size: 76px;
+	font-weight: 600;
+	letter-spacing: 0;
+	line-height: 0.92;
+}
+
+.park-login__scene-copy > p:last-child {
+	max-width: 330px;
+	margin: 0;
+	color: rgb(255 255 255 / 86%);
+	font-size: 15px;
+	line-height: 1.65;
+}
+
+.park-login__scene-footer {
+	display: flex;
+	z-index: 1;
+	justify-content: space-between;
+	gap: 18px;
+	color: rgb(255 255 255 / 77%);
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.park-login__scene-footer a {
+	color: inherit;
+	text-decoration-color: rgb(255 255 255 / 50%);
+	text-underline-offset: 3px;
+}
+
+.park-login__content {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	justify-content: center;
+	padding: 72px clamp(36px, 7vw, 112px) 28px;
+	background: #fff;
+}
+
+.park-login__form-wrap {
+	width: 100%;
+	max-width: 430px;
+	margin: auto;
+	animation: park-copy-arrive 650ms 100ms ease-out both;
+}
+
+.park-login__eyebrow {
+	color: var(--park-green);
+	text-transform: uppercase;
+}
+
+.park-login__eyebrow span {
+	background: var(--park-coral);
+}
+
+.park-login__form-wrap h2 {
+	margin: 18px 0 7px;
+	font-family: 'Barlow Condensed', sans-serif;
+	font-size: 50px;
+	font-weight: 600;
+	letter-spacing: 0;
+	line-height: 0.98;
+}
+
+.park-login__form-wrap h2 em {
+	color: var(--park-coral);
+	font-style: normal;
+}
+
+.park-login__intro {
+	margin: 0;
+	color: var(--park-muted);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.park-login__form {
+	display: grid;
+	gap: 19px;
+	margin-top: 30px;
+}
+
+.park-register__row {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.park-login__field label {
+	display: block;
+	margin-bottom: 8px;
+	color: var(--park-ink);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.park-login__input-wrap {
+	position: relative;
+}
+
+.park-login__input-wrap svg {
+	position: absolute;
+	top: 50%;
+	left: 15px;
+	width: 19px;
+	height: 19px;
+	transform: translateY(-50%);
+	color: #83928b;
+	pointer-events: none;
+}
+
+.park-login__input-wrap input {
+	width: 100%;
+	height: 52px;
+	padding: 0 15px 0 44px;
+	border: 1px solid var(--park-line);
+	border-radius: 4px;
+	outline: none;
+	background: #f8faf8;
+	color: var(--park-ink);
+	font: inherit;
+	font-size: 14px;
+	transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.park-login__input-wrap input::placeholder {
+	color: #9aa59f;
+}
+
+.park-login__input-wrap input:focus {
+	border-color: var(--park-green);
+	background: #fff;
+	box-shadow: 0 0 0 3px rgb(29 81 65 / 13%);
+}
+
+.park-login__error {
+	margin: 7px 0 0;
+	color: #b83e2b;
+	font-size: 12px;
+	line-height: 1.45;
+}
+
+.park-login__options {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: -2px;
+	font-size: 12px;
+}
+
+.park-login__remember {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--park-muted);
+	cursor: pointer;
+}
+
+.park-login__remember input {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	accent-color: var(--park-green);
+}
+
+.park-login__options a,
+.park-login__register a {
+	color: var(--park-green);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.park-login__options a:hover,
+.park-login__register a:hover {
+	color: var(--park-coral);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.park-login__submit,
+.park-login__google {
+	display: flex;
+	width: 100%;
+	min-height: 52px;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	border-radius: 4px;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	text-decoration: none;
+	transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.park-login__submit {
+	justify-content: space-between;
+	padding: 0 17px 0 19px;
+	border: 1px solid var(--park-green-dark);
+	background: var(--park-green-dark);
+	color: #fff;
+	cursor: pointer;
+}
+
+.park-login__submit:hover {
+	transform: translateY(-1px);
+	background: var(--park-green);
+	box-shadow: 0 5px 14px rgb(24 59 50 / 18%);
+}
+
+.park-login__submit:focus-visible,
+.park-login__google:focus-visible {
+	outline: 3px solid rgb(232 95 62 / 45%);
+	outline-offset: 3px;
+}
+
+.park-login__submit svg {
+	width: 20px;
+	height: 20px;
+}
+
+.park-login__divider {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 22px 0 16px;
+	color: #89968f;
+	font-size: 11px;
+}
+
+.park-login__divider::before,
+.park-login__divider::after {
+	height: 1px;
+	flex: 1;
+	background: var(--park-line);
+	content: '';
+}
+
+.park-login__google {
+	border: 1px solid var(--park-line);
+	background: #fff;
+	color: var(--park-ink);
+}
+
+.park-login__google:hover {
+	transform: translateY(-1px);
+	border-color: #b9c9c0;
+	background: #f8faf8;
+}
+
+.park-login__google svg {
+	width: 18px;
+	height: 18px;
+	flex: 0 0 auto;
+}
+
+.park-login__register {
+	margin: 23px 0 0;
+	color: var(--park-muted);
+	text-align: center;
+	font-size: 12px;
+}
+
+.park-login__register a {
+	margin-left: 3px;
+}
+
+.park-login__security {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin: 36px 0 0;
+	color: #89968f;
+	font-size: 10px;
+}
+
+.park-login__security span {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #71a685;
+}
+
+.park-login__notice {
+	margin: 18px 0 0;
+	padding: 11px 13px;
+	border-left: 3px solid var(--park-green);
+	background: #edf5ef;
+	color: var(--park-green-dark);
+	font-size: 13px;
+}
+
+@keyframes park-photo-arrive {
+	from { transform: scale(1.045); opacity: 0.75; }
+	to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes park-copy-arrive {
+	from { transform: translateY(10px); opacity: 0; }
+	to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 900px) {
+	.park-login {
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	}
+
+	.park-login__scene {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+
+	.park-login__scene-copy h1 {
+		font-size: 62px;
+	}
+
+	.park-login__content {
+		padding-right: 38px;
+		padding-left: 38px;
+	}
+}
+
+@media (max-width: 700px) {
+	.park-login {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.park-login__scene {
+		min-height: 230px;
+		padding: 20px 22px 17px;
+	}
+
+	.park-login__photo {
+		object-position: center 43%;
+	}
+
+	.park-login__brand-mark {
+		width: 38px;
+		height: 38px;
+		font-size: 16px;
+	}
+
+	.park-login__brand-name {
+		font-size: 17px;
+	}
+
+	.park-login__scene-copy {
+		margin: 25px 0 0;
+	}
+
+	.park-login__scene-kicker {
+		font-size: 10px;
+	}
+
+	.park-login__scene-copy h1 {
+		margin: 10px 0 0;
+		font-size: 42px;
+	}
+
+	.park-login__scene-copy > p:last-child,
+	.park-login__scene-footer {
+		display: none;
+	}
+
+	.park-login__content {
+		justify-content: flex-start;
+		padding: 32px 24px 24px;
+	}
+
+	.park-login__form-wrap {
+		max-width: 440px;
+	}
+
+	.park-login__form-wrap h2 {
+		margin-top: 13px;
+		font-size: 42px;
+	}
+
+	.park-login__form {
+		gap: 16px;
+		margin-top: 24px;
+	}
+
+	.park-register__row {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 16px;
+	}
+
+	.park-login__security {
+		margin-top: 28px;
+	}
+}
+
+@media (max-width: 380px) {
+	.park-login__scene {
+		min-height: 210px;
+	}
+
+	.park-login__content {
+		padding-right: 19px;
+		padding-left: 19px;
+	}
+
+	.park-login__options {
+		font-size: 11px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.park-login-page *,
+	.park-login-page *::before,
+	.park-login-page *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+.park-login-page--with-sidebar .park-login {
+	margin-left: var(--sidebar-width);
+}
+
+@media (max-width: 760px) {
+	.park-login-page--with-sidebar .park-login {
+		margin-left: 0;
+		padding-top: var(--topbar-height);
+	}
+}
