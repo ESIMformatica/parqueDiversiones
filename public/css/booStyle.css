@@ -219,3 +219,31 @@ body {
     padding: 20px 0 10px 0;
     text-align: center;
 }
+
+.eye {
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid #222;
+      overflow: hidden;
+    }
+
+    .visor {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotate(270deg); /* Rota la imagen 180 grados */
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotate(270deg); /* Rota el canvas 180 grados */
+  }
+
+  .contenedor-visor{
+    transform: rotate(90deg);
+  }

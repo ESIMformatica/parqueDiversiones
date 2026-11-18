@@ -45,6 +45,42 @@
                         Este recorrido dura aproximadamente 15 a 20 segundos, dejándote explorar los alrededores mientras vas en línea recta.
                     </p>
                 </div>
+
+                <div class="contenedor-visor">
+                    <div class="eye">
+                        <img class="visor" id="stream" src="" crossorigin="anonymous" alt="Video VR">
+                    </div>
+                    
+                    <div class="eye">
+                        <canvas id="canvasVR"></canvas>
+                    </div>
+
+                    <script>
+                        // IP directa del ESP32
+                        const ipESP32 = "192.168.22.237"; 
+
+                        const img = document.getElementById('stream');
+                        const canvas = document.getElementById('canvasVR');
+                        const ctx = canvas.getContext('2d');
+
+                        // Asignación correcta de la transmisión MJPEG
+                        img.src = "http://" + ipESP32 + "/stream"; // Cambia :81 por el puerto de tu cámara si usas :80 o :8080
+
+                        function renderCanvas() {
+                        if (img.complete && img.naturalWidth !== 0) {
+                            canvas.width = img.clientWidth;
+                            canvas.height = img.clientHeight;
+                            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        }
+                        requestAnimationFrame(renderCanvas);
+                        }
+
+                        img.onload = () => {
+                        renderCanvas();
+                        };
+                    </script>
+                </div>
+
             </section>
 
             <section class="section credits-section">
