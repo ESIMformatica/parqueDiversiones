@@ -1,0 +1,173 @@
+/* ==========================================================================
+   LA CAÍDA DEL EMPIRE STATE — ESTRUCTURA DEL EDIFICIO
+   Corona → torre (ascensor + fachada) → basamento sobre la Quinta Avenida
+   ========================================================================== */
+
+/* ---------- Corona ---------- */
+
+.esb-crown {
+    line-height: 0;
+}
+
+.esb-crown svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.esb-crown text,
+.esb-base text {
+    font-family: var(--esb-font);
+}
+
+.esb-beacon {
+    animation: esb-beacon 1.6s steps(1) infinite;
+}
+
+.esb-biplane {
+    animation: esb-biplane 16s ease-in-out infinite alternate;
+}
+
+.esb-biplane--late {
+    animation-duration: 21s;
+    animation-delay: -7s;
+}
+
+@keyframes esb-beacon {
+    0%, 60% { opacity: 1; }
+    61%, 100% { opacity: 0.25; }
+}
+
+@keyframes esb-biplane {
+    from { transform: translate(-36px, 4px); }
+    to { transform: translate(36px, -6px); }
+}
+
+/* ---------- Torre ---------- */
+
+.esb-tower {
+    display: grid;
+    grid-template-columns: var(--esb-shaft-width) minmax(0, 1fr);
+
+    border-inline: 10px solid var(--esb-stone-dark);
+}
+
+/*
+ * Fachada: pilares de piedra caliza (34px) alternados con columnas de
+ * ventanas (18px) separadas por enjutas de aluminio, como en el edificio real.
+ * Los gradientes usan cortes duros: se ven como bloques sólidos, no degradados.
+ */
+.esb-facade {
+    background-color: var(--esb-glass);
+    background-image:
+        repeating-linear-gradient(90deg, var(--esb-stone) 0 34px, transparent 34px 52px),
+        repeating-linear-gradient(180deg, transparent 0 30px, var(--esb-aluminum) 30px 40px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='312' height='280'%3E%3Cg fill='%23d9bc78'%3E%3Crect x='138' y='120' width='18' height='30'/%3E%3Crect x='242' y='240' width='18' height='30'/%3E%3Crect x='34' y='40' width='18' height='30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ---------- Banda de piso (enjuta de piedra grabada) ---------- */
+
+.esb-band {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 14px 32px;
+
+    background: var(--esb-stone-dark);
+    border-block: 1px solid var(--esb-stone-shadow);
+    box-shadow: inset 0 1px 0 var(--esb-stone-light);
+}
+
+.esb-band-floor {
+    min-width: 2.4ch;
+
+    color: var(--esb-stone-shadow);
+    font-size: 2.1rem;
+    font-stretch: 75%;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    text-shadow: 0 1px 0 var(--esb-stone-light);
+}
+
+.esb-band-name {
+    color: var(--esb-ink-soft);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.esb-band-name b {
+    color: var(--esb-ink);
+    font-weight: 700;
+}
+
+.esb-band-rule {
+    flex: 1;
+    height: 1px;
+
+    background: var(--esb-stone-shadow);
+    box-shadow: 0 1px 0 var(--esb-stone-light);
+}
+
+.esb-band-meta {
+    color: var(--esb-ink-soft);
+    font-size: 0.74rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* ---------- Vano y placa de piedra ---------- */
+
+.esb-bay {
+    padding: 64px 56px;
+}
+
+.esb-plaque {
+    padding: 48px;
+
+    background: var(--esb-paper);
+    border: 1px solid var(--esb-stone-shadow);
+    box-shadow:
+        0 0 0 12px var(--esb-stone-light),
+        0 0 0 13px var(--esb-stone-shadow);
+}
+
+/* ---------- Basamento ---------- */
+
+.esb-base {
+    border-inline: 10px solid var(--esb-stone-dark);
+    line-height: 0;
+}
+
+.esb-base svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.esb-street {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding: 18px 4px 0;
+
+    color: var(--esb-ink-faint);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .esb-beacon,
+    .esb-biplane {
+        animation: none;
+    }
+}
+

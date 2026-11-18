@@ -1,76 +1,65 @@
-<div class="floor-spandrel-divider" aria-hidden="true">
-    <span>NIVEL INTERMEDIO — TRAMO DE FACHADA CENTRAL</span>
-    <span>PISO 68 • 254 METROS</span>
-</div>
+<section class="esb-bay" id="funcionamiento" aria-labelledby="esb-video-title">
+    <div class="esb-plaque">
 
-<section class="facade-section" id="funcionamiento" aria-labelledby="video-title">
-    <div>
-        <span class="editorial-kicker">Registro Audiovisual y Mecánica</span>
-        <h2 class="editorial-heading" id="video-title">
-            Funcionamiento de la Atracción
-        </h2>
-        <p class="editorial-lead" style="max-width: 720px;">
-            Demostración en video del recorrido vertical sobre la estructura del Empire State Building y desglose de
-            las tres etapas mecánicas que componen el ciclo completo de ascenso y caída.
-        </p>
-    </div>
+        <header class="esb-section-head">
+            <div>
+                <p class="esb-label esb-label--accent">Funcionamiento</p>
+                <h2 class="esb-heading" id="esb-video-title">Un ciclo, tres tiempos</h2>
+            </div>
+            <p class="esb-text">
+                Así funciona la atracción en la maqueta: Kong toma el carrito en la base, lo sube por
+                la guía central de la fachada y lo suelta desde la punta.
+            </p>
+        </header>
 
-    <div class="video-operation-layout">
-        <div class="video-stage-frame">
-            <div class="video-Viewport-box">
-                <video
-                    controls
-                    preload="metadata"
-                    poster="{{ asset('images/fall/video-poster.jpg') }}"
-                >
+        <figure class="esb-media">
+            <div class="esb-media-frame esb-video" data-esb-media>
+                <video controls preload="metadata" poster="{{ asset('images/fall/video-poster.jpg') }}">
                     <source src="{{ asset('videos/fall/funcionamiento.mp4') }}" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video.
                 </video>
+                <div class="esb-placeholder">
+                    <div class="esb-placeholder-box">
+                        <span class="esb-label">Video de la atracción</span>
+                        <p>Guardá el video en:</p>
+                        <code>public/videos/fall/funcionamiento.mp4</code>
+                    </div>
+                </div>
             </div>
+            <figcaption class="esb-caption">
+                <span>Fig. 02 — Ciclo completo</span>
+                <span>Ascenso y caída</span>
+            </figcaption>
+        </figure>
 
-            <div class="video-meta-bar">
-                <span>ARCHIVO: public/videos/fall/funcionamiento.mp4</span>
-                <span>CICLO DE ASCENSO Y CAÍDA</span>
-            </div>
-        </div>
-
-        <div class="operation-steps-stack" aria-label="Etapas del funcionamiento">
-            <article class="operation-step-item">
-                <div class="step-header-row">
-                    <span class="step-index-tag">FASE 01 — EMBARQUE</span>
-                    <span class="step-altitude-tag">PISO 01 • NIVEL BASE</span>
-                </div>
-                <h3>Acoplamiento en la Base</h3>
+        <ol class="esb-steps">
+            <li class="esb-step">
+                <span class="esb-step-num">01</span>
+                <span class="esb-label esb-label--accent">Piso 01</span>
+                <h3>Embarque</h3>
                 <p>
-                    Los pasajeros se ubican en el carrito al pie del edificio. La figura de King Kong, integrada al
-                    sistema elevador, sujeta firmemente el chasis antes de iniciar el recorrido vertical.
+                    Los pasajeros se sientan en el carrito al pie del edificio. Kong, unido al sistema de
+                    elevación, toma el carrito con las dos manos.
                 </p>
-            </article>
-
-            <article class="operation-step-item">
-                <div class="step-header-row">
-                    <span class="step-index-tag">FASE 02 — ELEVACIÓN</span>
-                    <span class="step-altitude-tag">PISO 02 AL PISO 102</span>
-                </div>
-                <h3>Ascenso con King Kong hasta la Punta</h3>
+            </li>
+            <li class="esb-step">
+                <span class="esb-step-num">02</span>
+                <span class="esb-label esb-label--accent">Piso 01 → 102</span>
+                <h3>Escalada</h3>
                 <p>
-                    A través del riel guía central sobre la fachada del Empire State, King Kong eleva el carrito de
-                    manera continua hasta alcanzar la aguja superior en el punto más alto de la maqueta.
+                    Kong trepa por la guía central de la fachada y lleva el carrito hasta la aguja, el punto
+                    más alto de toda la maqueta.
                 </p>
-            </article>
-
-            <article class="operation-step-item">
-                <div class="step-header-row">
-                    <span class="step-index-tag">FASE 03 — DESPLOME</span>
-                    <span class="step-altitude-tag">PISO 102 A BASE</span>
-                </div>
-                <h3>Liberación y Caída Libre</h3>
+            </li>
+            <li class="esb-step">
+                <span class="esb-step-num">03</span>
+                <span class="esb-label esb-label--accent">Piso 102 → 01</span>
+                <h3>Caída libre</h3>
                 <p>
-                    Tras detenerse unos instantes en la cima del edificio, el mecanismo suelta el carrito para que
-                    descienda en caída libre vertical por el riel hasta su detención segura en la estación inferior.
+                    Tras unos segundos arriba, Kong suelta el carrito. Cae libremente por la guía hasta
+                    los frenos de la base.
                 </p>
-            </article>
-        </div>
+            </li>
+        </ol>
+
     </div>
 </section>
-

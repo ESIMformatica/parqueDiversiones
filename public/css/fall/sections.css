@@ -1,480 +1,374 @@
 /* ==========================================================================
-   SECCIONES ARQUITECTÓNICAS DE LA PÁGINA (INTRO, VIDEO, ESCALAS Y PROCESO)
-   Todo en tonos crema/piedra caliza, bordes sólidos y tipografía editorial.
+   LA CAÍDA DEL EMPIRE STATE — CONTENIDO DE CADA PISO
    ========================================================================== */
 
-.facade-section {
-    padding: 52px 44px;
+/* ---------- Medios (foto / video) con respaldo si falta el archivo ---------- */
+
+.esb-media {
+    margin: 0;
+    padding: 10px;
+
+    background: var(--esb-stone-light);
+    border: 1px solid var(--esb-stone-shadow);
 }
 
-/* ---------- 1. SECCIÓN DE INTRODUCCIÓN Y FOTO DE LA MAQUETA ---------- */
-.intro-maqueta-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 42px;
-    align-items: start;
+.esb-media-frame {
+    position: relative;
+
+    aspect-ratio: var(--esb-ratio, 4 / 5);
+    overflow: hidden;
+
+    background: var(--esb-glass);
 }
 
-.intro-meta-strip {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0;
-    margin-bottom: 22px;
-    border: 1.5px solid var(--iron-frame);
-    background-color: var(--stone-paper);
-}
+.esb-media-frame img,
+.esb-media-frame video {
+    position: absolute;
+    inset: 0;
 
-.intro-meta-cell {
-    padding: 6px 14px;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-primary);
-    border-right: 1.5px solid var(--iron-frame);
-}
+    width: 100%;
+    height: 100%;
 
-.intro-meta-cell:last-child {
-    border-right: none;
-    background-color: var(--stone-surface);
-    color: var(--accent-terracotta);
-}
-
-.intro-main-title {
-    margin: 0 0 18px;
-    font-family: var(--font-serif);
-    font-size: clamp(2.45rem, 4.4vw, 3.7rem);
-    font-weight: 700;
-    line-height: 1.03;
-    color: var(--ink-primary);
-}
-
-.intro-main-title span {
     display: block;
-    font-style: italic;
-    font-weight: 600;
-    color: var(--accent-terracotta);
-    margin-top: 4px;
+    object-fit: cover;
 }
 
-.intro-description {
-    margin: 0 0 24px;
-    font-size: 1.03rem;
-    line-height: 1.72;
-    color: var(--ink-secondary);
+.esb-placeholder {
+    position: absolute;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background-color: var(--esb-stone-light);
+    background-image: repeating-linear-gradient(45deg, transparent 0 11px, var(--esb-stone-dark) 11px 12px);
 }
 
-.intro-description + .intro-description {
-    margin-top: -10px;
-}
-
-/* Cuadrícula de datos clave en bloques de piedra caliza */
-.intro-Ledger-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border: 1.5px solid var(--iron-frame);
-    background-color: var(--stone-paper);
-    margin-top: 28px;
-}
-
-.ledger-cell {
+.esb-placeholder-box {
+    max-width: 280px;
     padding: 16px 18px;
-    border-right: 1.5px solid var(--iron-frame);
-}
 
-.ledger-cell:last-child {
-    border-right: none;
-}
-
-.ledger-cell small {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 6px;
-}
-
-.ledger-cell strong {
-    font-family: var(--font-serif);
-    font-size: 1.45rem;
-    font-weight: 700;
-    color: var(--ink-primary);
-}
-
-/* Marco arquitectónico para la foto de la maqueta */
-.maqueta-photo-frame {
-    background-color: var(--stone-paper);
-    border: 2px solid var(--iron-frame);
-    padding: 16px;
-    box-shadow: 8px 8px 0 var(--stone-recessed);
-}
-
-.maqueta-photo-viewport {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    background-color: var(--stone-surface);
-    border: 1.5px solid var(--iron-frame);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.maqueta-photo-viewport img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.asset-placeholder-notice {
-    padding: 28px;
+    background: var(--esb-paper);
+    border: 1px solid var(--esb-stone-shadow);
     text-align: center;
-    max-width: 340px;
 }
 
-.asset-placeholder-code {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: var(--stone-bg);
-    border: 1px solid var(--mortar-strong);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--accent-terracotta);
+.esb-placeholder-box p {
+    margin: 8px 0 0;
+
+    color: var(--esb-ink-soft);
+    font-size: 0.82rem;
+    line-height: 1.5;
 }
 
-.maqueta-photo-caption {
+.esb-placeholder-box code {
+    display: block;
+    margin-top: 8px;
+
+    color: var(--esb-ink);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.esb-media-frame.is-missing img,
+.esb-media-frame.is-missing video {
+    display: none;
+}
+
+.esb-media-frame.is-missing .esb-placeholder {
+    display: flex;
+}
+
+.esb-caption {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
     gap: 12px;
-    padding-top: 12px;
-    margin-top: 12px;
-    border-top: 1px solid var(--mortar-line);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--ink-secondary);
+
+    padding-top: 10px;
+
+    color: var(--esb-ink-faint);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
-/* ---------- 2. SECCIÓN DE VIDEO Y FUNCIONAMIENTO MECÁNICO ---------- */
-.video-operation-layout {
+/* ---------- Encabezado de sección ---------- */
+
+.esb-section-head {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 36px;
-    margin-top: 28px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: end;
+
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid var(--esb-stone-shadow);
+}
+
+.esb-section-head .esb-label {
+    margin-bottom: 12px;
+}
+
+.esb-section-head .esb-heading {
+    margin-bottom: 0;
+}
+
+/* ---------- Piso 102: Introducción ---------- */
+
+.esb-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 56px;
+    align-items: center;
+}
+
+.esb-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.esb-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--esb-red);
+}
+
+.esb-title {
+    margin: 0 0 26px;
+
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 0.92;
+    text-transform: uppercase;
+}
+
+.esb-title span {
+    display: block;
+    color: var(--esb-red);
+}
+
+.esb-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    margin: 32px 0 0;
+
+    border-top: 1px solid var(--esb-ink);
+}
+
+.esb-fact {
+    padding: 16px 16px 0 0;
+}
+
+.esb-fact + .esb-fact {
+    padding-left: 16px;
+    border-left: 1px solid var(--esb-stone-dark);
+}
+
+.esb-fact dt {
+    margin-bottom: 6px;
+
+    color: var(--esb-ink-faint);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.esb-fact dd {
+    margin: 0;
+
+    font-size: 1.35rem;
+    font-stretch: 75%;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* ---------- Piso 86: Funcionamiento ---------- */
+
+.esb-video {
+    --esb-ratio: 16 / 9;
+}
+
+.esb-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    margin: 40px 0 0;
+    padding: 0;
+
+    border-top: 1px solid var(--esb-ink);
+    list-style: none;
+}
+
+.esb-step {
+    padding: 24px 28px 0 0;
+}
+
+.esb-step + .esb-step {
+    padding-left: 28px;
+    border-left: 1px solid var(--esb-stone-dark);
+}
+
+.esb-step-num {
+    display: block;
+    margin-bottom: 14px;
+
+    color: var(--esb-stone-shadow);
+    font-size: 3rem;
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.esb-step h3 {
+    margin: 8px 0 10px;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.esb-step p {
+    margin: 0;
+
+    color: var(--esb-ink-soft);
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+
+/* ---------- Piso 40: Escalas ---------- */
+
+.esb-scales {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 48px;
     align-items: start;
 }
 
-.video-stage-frame {
-    background-color: var(--stone-paper);
-    border: 2px solid var(--iron-frame);
-    padding: 16px;
-    box-shadow: 8px 8px 0 var(--stone-recessed);
+.esb-elevation {
+    margin: 0;
+    padding: 20px;
+
+    background: var(--esb-stone-light);
+    border: 1px solid var(--esb-stone-shadow);
 }
 
-.video-Viewport-box {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: var(--iron-frame);
-    border: 1.5px solid var(--iron-frame);
-    overflow: hidden;
-}
-
-.video-Viewport-box video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.esb-elevation svg {
     display: block;
+    width: 100%;
+    height: auto;
 }
 
-.video-meta-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.esb-elevation text {
+    fill: var(--esb-ink-soft);
+    font-family: var(--esb-font);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.esb-elevation .esb-dim-value {
+    fill: var(--esb-ink);
+    font-weight: 700;
+}
+
+.esb-elevation figcaption {
     padding-top: 12px;
     margin-top: 12px;
-    border-top: 1px solid var(--mortar-line);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--ink-secondary);
+
+    border-top: 1px solid var(--esb-stone-shadow);
 }
 
-/* Secuencia de funcionamiento en 3 etapas */
-.operation-steps-stack {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid var(--iron-frame);
-    background-color: var(--stone-paper);
-}
-
-.operation-step-item {
-    padding: 20px 22px;
-    border-bottom: 1.5px solid var(--iron-frame);
-}
-
-.operation-step-item:last-child {
-    border-bottom: none;
-}
-
-.step-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 6px;
-}
-
-.step-index-tag {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: var(--accent-terracotta);
-    text-transform: uppercase;
-}
-
-.step-altitude-tag {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--ink-muted);
-}
-
-.operation-step-item h3 {
-    margin: 0 0 6px;
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--ink-primary);
-}
-
-.operation-step-item p {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: var(--ink-secondary);
-}
-
-/* ---------- 3. SECCIÓN DE ESCALAS Y DETRÁS DE OBRA (MAKING OF) ---------- */
-.scales-comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-top: 28px;
-}
-
-.scale-blueprint-card {
-    background-color: var(--stone-paper);
-    border: 2px solid var(--iron-frame);
-    padding: 28px;
-}
-
-.scale-blueprint-card h3 {
-    margin: 0 0 16px;
-    font-family: var(--font-serif);
-    font-size: 1.55rem;
-    color: var(--ink-primary);
-    padding-bottom: 12px;
-    border-bottom: 1.5px solid var(--iron-frame);
-}
-
-.scale-table {
+.esb-table {
     width: 100%;
+
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.94rem;
 }
 
-.scale-table th,
-.scale-table td {
-    padding: 12px 10px;
-    text-align: left;
-    border-bottom: 1px solid var(--mortar-line);
-}
+.esb-table th {
+    padding: 0 12px 12px 0;
 
-.scale-table th {
-    font-family: var(--font-mono);
+    color: var(--esb-ink-faint);
     font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-}
-
-.scale-table td strong {
-    color: var(--ink-primary);
-}
-
-.scale-value-mono {
-    font-family: var(--font-mono);
-    font-size: 0.84rem;
     font-weight: 600;
-    color: var(--accent-terracotta);
-}
-
-/* Representación visual de proporción arquitectónica */
-.scale-bars-container {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-top: 10px;
-}
-
-.scale-bar-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.scale-bar-labels {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--ink-secondary);
-}
-
-.scale-bar-track {
-    width: 100%;
-    height: 18px;
-    background-color: var(--stone-surface);
-    border: 1.5px solid var(--iron-frame);
-}
-
-.scale-bar-fill {
-    height: 100%;
-    background-color: var(--iron-frame);
-}
-
-.scale-bar-fill--accent {
-    background-color: var(--accent-terracotta);
-}
-
-/* Galería documental del proceso de construcción (Making Of) */
-.workshop-Subsection {
-    margin-top: 48px;
-    padding-top: 36px;
-    border-top: 1.5px solid var(--mortar-strong);
-}
-
-.workshop-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 24px;
-}
-
-.workshop-card {
-    background-color: var(--stone-paper);
-    border: 2px solid var(--iron-frame);
-    display: flex;
-    flex-direction: column;
-}
-
-.workshop-photo-slot {
-    aspect-ratio: 4 / 3;
-    background-color: var(--stone-surface);
-    border-bottom: 1.5px solid var(--iron-frame);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.workshop-photo-slot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.workshop-card-body {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.workshop-stage-num {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
     letter-spacing: 0.14em;
+    text-align: left;
     text-transform: uppercase;
-    color: var(--accent-terracotta);
+
+    border-bottom: 1px solid var(--esb-ink);
 }
 
-.workshop-card-body h4 {
-    margin: 0;
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    color: var(--ink-primary);
+.esb-table td {
+    padding: 15px 12px 15px 0;
+
+    color: var(--esb-ink-soft);
+    border-bottom: 1px solid var(--esb-stone-dark);
+    font-variant-numeric: tabular-nums;
+    vertical-align: top;
 }
 
-.workshop-card-body p {
-    margin: 0;
+.esb-table td:first-child {
+    color: var(--esb-ink);
+    font-weight: 600;
+}
+
+.esb-table td:last-child {
+    color: var(--esb-ink);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.esb-note {
+    margin: 20px 0 0;
+    padding-left: 14px;
+
+    color: var(--esb-ink-soft);
+    border-left: 2px solid var(--esb-red);
     font-size: 0.88rem;
     line-height: 1.6;
-    color: var(--ink-secondary);
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 1024px) {
-    .facade-body-grid {
-        grid-template-columns: 78px 1fr;
-    }
+/* ---------- Piso 12: Taller ---------- */
 
-    .shaft-sticky-carriage {
-        width: 68px;
-        padding: 8px 4px;
-    }
-
-    .carriage-floor-readout {
-        font-size: 1.05rem;
-    }
-
-    .intro-maqueta-grid,
-    .video-operation-layout,
-    .scales-comparison-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .workshop-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.esb-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
 }
 
-@media (max-width: 680px) {
-    .facade-body-grid {
-        grid-template-columns: 1fr;
-    }
+.esb-card .esb-media-frame {
+    --esb-ratio: 4 / 3;
+}
 
-    .facade-elevation-shaft {
-        display: none;
-    }
+.esb-card-body {
+    padding-top: 18px;
+}
 
-    .facade-wall-content {
-        border-left: none;
-    }
+.esb-card-body h3 {
+    margin: 8px 0 8px;
 
-    .facade-section {
-        padding: 32px 20px;
-    }
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
 
-    .intro-Ledger-grid,
-    .workshop-cards-grid {
-        grid-template-columns: 1fr;
-    }
+.esb-card-body p {
+    margin: 0;
 
-    .ledger-cell {
-        border-right: none;
-        border-bottom: 1.5px solid var(--iron-frame);
-    }
-
-    .ledger-cell:last-child {
-        border-bottom: none;
-    }
+    color: var(--esb-ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.65;
 }

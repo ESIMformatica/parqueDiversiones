@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Empire State Building: La Caída de King Kong | Web Fun Park')
+@section('title', 'La caída del Empire State | Web Fun Park')
 
 @push('styles')
-    <!-- Tipografías editoriales y técnicas -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Estilos modulares de la fachada del Empire State Building -->
     <link
         rel="stylesheet"
         href="{{ asset('css/fall.css') }}"
@@ -17,45 +15,42 @@
 @endpush
 
 @section('content')
-    <div class="fall-facade-shell" id="fallFacadeShell">
+    <article class="esb">
 
-        {{-- Cornisa superior del edificio (Punto de partida del descenso: Piso 102) --}}
-        <header class="facade-cornice">
-            <span>EMPIRE STATE BUILDING — TORRE DE CAÍDA LIBRE</span>
-            <span class="facade-cornice-coords">CÚSPIDE • PISO 102 • 381 METROS</span>
-        </header>
+        {{-- Corona: antena, mástil y retranqueos --}}
+        @include('partials.fall.crown')
 
-        {{-- Cuerpo del edificio: Riel vertical de descenso a la izquierda + Muros de piedra caliza a la derecha --}}
-        <div class="facade-body-grid">
+        {{-- Torre: hueco del ascensor + fachada --}}
+        <div class="esb-tower">
 
-            @include('partials.fall.facade-rail')
+            @include('partials.fall.elevator')
 
-            <div class="facade-wall-content">
+            <div class="esb-facade">
 
-                {{-- 1. Introducción y fotografía principal de la maqueta --}}
+                @include('partials.fall.floor-band', ['floor' => 102, 'name' => 'Cúspide', 'section' => 'La atracción', 'meters' => 381])
                 @include('partials.fall.intro-maqueta')
 
-                {{-- 2. Video de la atracción y explicación de su funcionamiento --}}
+                @include('partials.fall.floor-band', ['floor' => 86, 'name' => 'Observatorio', 'section' => 'Funcionamiento', 'meters' => 320])
                 @include('partials.fall.video-funcionamiento')
 
-                {{-- 3. Estudio de escalas y el trabajo detrás de la maqueta --}}
+                @include('partials.fall.floor-band', ['floor' => 40, 'name' => 'Tramo medio', 'section' => 'Escalas', 'meters' => 149])
                 @include('partials.fall.escalas-proceso')
 
-                @stack('fall_extra_sections')
+                @include('partials.fall.floor-band', ['floor' => 12, 'name' => 'Tramo bajo', 'section' => 'Taller', 'meters' => 45])
+                @include('partials.fall.taller')
+
+                @stack('fall_extra_floors')
 
             </div>
         </div>
 
-        {{-- Base del edificio al llegar al final del scroll (Piso 01) --}}
-        <footer class="facade-ground-plinth">
-            <span>NIVEL DE CALLE — 350 FIFTH AVENUE, MANHATTAN</span>
-            <span>PISO 01 • 0 METROS • ZONA DE FRENADO FINAL</span>
-        </footer>
+        {{-- Basamento: entrada sobre la Quinta Avenida --}}
+        @include('partials.fall.base')
 
-    </div>
+    </article>
 @endsection
 
 @push('scripts')
-    <!-- Script modular para el descenso interactivo en scroll por los 102 pisos -->
-    <script src="{{ asset('js/fall/facade-scroll.js') }}"></script>
+    <script src="{{ asset('js/fall/elevator.js') }}"></script>
+    <script src="{{ asset('js/fall/media-fallback.js') }}"></script>
 @endpush

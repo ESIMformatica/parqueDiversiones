@@ -1,191 +1,113 @@
-<div class="floor-spandrel-divider" aria-hidden="true">
-    <span>NIVEL INFERIOR — PROPORCIONES Y TALLER DE CONSTRUCCIÓN</span>
-    <span>PISO 34 A PISO 01 • BASE</span>
-</div>
+<section class="esb-bay" id="escalas" aria-labelledby="esb-scales-title">
+    <div class="esb-plaque">
 
-<section class="facade-section" id="escalas-y-proceso" aria-labelledby="scales-title">
-    <div>
-        <span class="editorial-kicker">Documentación Técnica del Proyecto</span>
-        <h2 class="editorial-heading" id="scales-title">
-            Relación de Escalas y Trabajo Detrás de Obra
-        </h2>
-        <p class="editorial-lead" style="max-width: 740px;">
-            Adaptación dimensional del Empire State Building para integrarse a la maqueta del parque y registro del
-            proceso constructivo llevado a cabo durante el desarrollo de la atracción.
-        </p>
-    </div>
-
-    {{-- Comparativa de escalas --}}
-    <div class="scales-comparison-grid">
-        <div class="scale-blueprint-card">
-            <h3>Cuadro Comparativo de Dimensiones</h3>
-            <table class="scale-table">
-                <thead>
-                    <tr>
-                        <th>Elemento</th>
-                        <th>Referencia Real</th>
-                        <th>Escala en Maqueta</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Altura hasta Azotea (Piso 102)</strong></td>
-                        <td>381 m</td>
-                        <td class="scale-value-mono">76 cm (Escala 1:500)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Altura Total con Aguja</strong></td>
-                        <td>443 m</td>
-                        <td class="scale-value-mono">88 cm</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Recorrido del Carrito</strong></td>
-                        <td>320 m verticales</td>
-                        <td class="scale-value-mono">64 cm de guía libre</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Envergadura de King Kong</strong></td>
-                        <td>7.6 m (Versión 2005)</td>
-                        <td class="scale-value-mono">14 cm (Escala adaptada)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Capacidad del Carrito</strong></td>
-                        <td>16 pasajeros</td>
-                        <td class="scale-value-mono">Módulo frontal de 8 cm</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="scale-blueprint-card">
-            <h3>Proporción Estructural en la Maqueta</h3>
-            <p style="margin: 0 0 18px; font-size: 0.9rem; line-height: 1.6; color: var(--ink-secondary);">
-                Para que la figura de King Kong y el carrito de pasajeros sean visualmente protagonistas dentro de la
-                maqueta, se utilizó una escala selectiva que respeta la silueta escalonada del edificio mientras
-                destaca el mecanismo central.
-            </p>
-
-            <div class="scale-bars-container">
-                <div class="scale-bar-group">
-                    <div class="scale-bar-labels">
-                        <span>ALTURA TOTAL CON AGUJA</span>
-                        <span>100% (88 CM)</span>
-                    </div>
-                    <div class="scale-bar-track">
-                        <div class="scale-bar-fill" style="width: 100%;"></div>
-                    </div>
-                </div>
-
-                <div class="scale-bar-group">
-                    <div class="scale-bar-labels">
-                        <span>PUNTO MÁXIMO DE ELEVACIÓN DEL CARRITO</span>
-                        <span>82% (72 CM)</span>
-                    </div>
-                    <div class="scale-bar-track">
-                        <div class="scale-bar-fill scale-bar-fill--accent" style="width: 82%;"></div>
-                    </div>
-                </div>
-
-                <div class="scale-bar-group">
-                    <div class="scale-bar-labels">
-                        <span>CUERPO PRINCIPAL DE FACHADA CALIZA</span>
-                        <span>74% (65 CM)</span>
-                    </div>
-                    <div class="scale-bar-track">
-                        <div class="scale-bar-fill" style="width: 74%;"></div>
-                    </div>
-                </div>
-
-                <div class="scale-bar-group">
-                    <div class="scale-bar-labels">
-                        <span>ZONA DE FRENADO Y BASE EN NIVEL 01</span>
-                        <span>16% (14 CM)</span>
-                    </div>
-                    <div class="scale-bar-track">
-                        <div class="scale-bar-fill" style="width: 16%;"></div>
-                    </div>
-                </div>
+        <header class="esb-section-head">
+            <div>
+                <p class="esb-label esb-label--accent">Escalas</p>
+                <h2 class="esb-heading" id="esb-scales-title">De 443 metros a 88 centímetros</h2>
             </div>
-        </div>
-    </div>
+            <p class="esb-text">
+                El edificio se redujo a escala 1:500 para que cupiera en el parque. Kong y el carrito
+                se hicieron más grandes de lo que les corresponde, para que se lean bien de lejos.
+            </p>
+        </header>
 
-    {{-- Detrás de escena / Proceso de armado --}}
-    <div class="workshop-Subsection">
-        <span class="editorial-kicker">Bitácora de Construcción</span>
-        <h3 class="editorial-heading" style="font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-bottom: 8px;">
-            El Trabajo Detrás de la Maqueta
-        </h3>
-        <p class="editorial-lead" style="max-width: 680px;">
-            Etapas de diseño, armado estructural y montaje del sistema de caída libre realizadas por el equipo.
-        </p>
+        <div class="esb-scales">
 
-        <div class="workshop-cards-grid">
-            <article class="workshop-card">
-                <div class="workshop-photo-slot">
-                    <img
-                        src="{{ asset('images/fall/proceso-1.jpg') }}"
-                        alt="Construcción de los volúmenes del Empire State Building"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                    >
-                    <div class="asset-placeholder-notice" style="display: none;">
-                        <span class="editorial-kicker">Foto Etapa 01</span>
-                        <code class="asset-placeholder-code">public/images/fall/proceso-1.jpg</code>
-                    </div>
-                </div>
-                <div class="workshop-card-body">
-                    <span class="workshop-stage-num">ETAPA 01 — ESTRUCTURA</span>
-                    <h4>Corte y Armado del Edificio</h4>
-                    <p>
-                        Construcción de los bloques escalonados del Empire State Building respetando las proporciones
-                        Art Déco, el color piedra caliza de los muros y la aguja superior.
-                    </p>
-                </div>
-            </article>
+            <figure class="esb-elevation">
+                <svg viewBox="0 0 360 430" role="img" aria-label="Alzado de la maqueta con sus alturas principales">
+                    {{-- Silueta --}}
+                    <path d="M50 400 V336 H60 V150 H74 V122 H86 V106 H96 V89 H103 V58 H109 V40 H111 V58 H117 V89 H124 V106 H134 V122 H146 V150 H160 V336 H170 V400 Z" fill="#ddd3c1" stroke="#221e1a" stroke-width="1.2"/>
+                    <g stroke="#c9bda8" stroke-width="1">
+                        <line x1="70" y1="160" x2="70" y2="330"/>
+                        <line x1="82" y1="160" x2="82" y2="330"/>
+                        <line x1="94" y1="160" x2="94" y2="330"/>
+                        <line x1="126" y1="160" x2="126" y2="330"/>
+                        <line x1="138" y1="160" x2="138" y2="330"/>
+                        <line x1="150" y1="160" x2="150" y2="330"/>
+                    </g>
 
-            <article class="workshop-card">
-                <div class="workshop-photo-slot">
-                    <img
-                        src="{{ asset('images/fall/proceso-2.jpg') }}"
-                        alt="Montaje del riel vertical y carrito de caída libre"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                    >
-                    <div class="asset-placeholder-notice" style="display: none;">
-                        <span class="editorial-kicker">Foto Etapa 02</span>
-                        <code class="asset-placeholder-code">public/images/fall/proceso-2.jpg</code>
-                    </div>
-                </div>
-                <div class="workshop-card-body">
-                    <span class="workshop-stage-num">ETAPA 02 — MECÁNICA</span>
-                    <h4>Guía Vertical y Carrito</h4>
-                    <p>
-                        Instalación del riel central sobre la cara frontal de la torre para permitir un deslizamiento
-                        fluido tanto durante la subida asistida por Kong como en el descenso libre.
-                    </p>
-                </div>
-            </article>
+                    {{-- Guía: tramo de caída y tramo de frenado --}}
+                    <line x1="110" y1="105" x2="110" y2="343" stroke="#8f2d1f" stroke-width="3"/>
+                    <line x1="110" y1="343" x2="110" y2="398" stroke="#221e1a" stroke-width="4"/>
+                    <rect x="101" y="100" width="18" height="8" fill="#221e1a"/>
 
-            <article class="workshop-card">
-                <div class="workshop-photo-slot">
-                    <img
-                        src="{{ asset('images/fall/proceso-3.jpg') }}"
-                        alt="Integración de King Kong y detalles finales"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                    >
-                    <div class="asset-placeholder-notice" style="display: none;">
-                        <span class="editorial-kicker">Foto Etapa 03</span>
-                        <code class="asset-placeholder-code">public/images/fall/proceso-3.jpg</code>
-                    </div>
-                </div>
-                <div class="workshop-card-body">
-                    <span class="workshop-stage-num">ETAPA 03 — DETALLES</span>
-                    <h4>Figura de King Kong y Terminación</h4>
-                    <p>
-                        Modelado y fijación de King Kong sujetando el carrito de pasajeros, pintura de las ventanas de
-                        la fachada y ambientación de la base en Nueva York.
-                    </p>
-                </div>
-            </article>
+                    {{-- Suelo --}}
+                    <line x1="20" y1="400" x2="200" y2="400" stroke="#221e1a" stroke-width="1.5"/>
+                    <g stroke="#a89a83" stroke-width="1">
+                        <path d="M30 400 L22 410 M50 400 L42 410 M70 400 L62 410 M90 400 L82 410 M110 400 L102 410 M130 400 L122 410 M150 400 L142 410 M170 400 L162 410 M190 400 L182 410"/>
+                    </g>
+
+                    {{-- Líneas de cota --}}
+                    <g stroke="#221e1a" stroke-width="1">
+                        <line x1="210" y1="40" x2="210" y2="400"/>
+                        <path d="M205 40 H215 M205 89 H215 M205 105 H215 M205 343 H215 M205 400 H215"/>
+                    </g>
+                    <g stroke="#a89a83" stroke-width="1" stroke-dasharray="3 3">
+                        <path d="M112 40 H205 M125 89 H205 M120 105 H205 M171 343 H205"/>
+                    </g>
+
+                    <text x="222" y="44"><tspan class="esb-dim-value">88 cm</tspan>  Aguja</text>
+                    <text x="222" y="93"><tspan class="esb-dim-value">76 cm</tspan>  Azotea</text>
+                    <text x="222" y="109"><tspan class="esb-dim-value">72 cm</tspan>  Kong suelta</text>
+                    <text x="222" y="347"><tspan class="esb-dim-value">14 cm</tspan>  Frenado</text>
+                    <text x="222" y="404"><tspan class="esb-dim-value">0</tspan>  Nivel de calle</text>
+                </svg>
+                <figcaption class="esb-caption">
+                    <span>Alzado frontal</span>
+                    <span>Esc. 1:500</span>
+                </figcaption>
+            </figure>
+
+            <div>
+                <table class="esb-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Elemento</th>
+                            <th scope="col">Real</th>
+                            <th scope="col">Maqueta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Altura hasta la azotea</td>
+                            <td>381 m</td>
+                            <td>76 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Altura con aguja</td>
+                            <td>443 m</td>
+                            <td>88 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Recorrido de caída</td>
+                            <td>320 m</td>
+                            <td>58 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Zona de frenado</td>
+                            <td>70 m</td>
+                            <td>14 cm</td>
+                        </tr>
+                        <tr>
+                            <td>King Kong (altura)</td>
+                            <td>7,6 m</td>
+                            <td>14 cm</td>
+                        </tr>
+                        <tr>
+                            <td>Carrito</td>
+                            <td>16 pasajeros</td>
+                            <td>8 cm</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="esb-note">
+                    Kong y el carrito se modelaron a una escala más grande que la del edificio. Si se hubieran
+                    hecho a 1:500 exacto, Kong mediría apenas 1,5 cm.
+                </p>
+            </div>
+
         </div>
     </div>
 </section>
-

@@ -1,0 +1,103 @@
+/* ==========================================================================
+   LA CAÍDA DEL EMPIRE STATE — RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1180px) {
+    .esb-intro,
+    .esb-section-head,
+    .esb-scales {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .esb-section-head {
+        gap: 16px;
+    }
+
+    .esb-intro .esb-media {
+        max-width: 460px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .esb-steps,
+    .esb-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .esb-step,
+    .esb-step + .esb-step {
+        padding: 22px 0;
+        border-left: none;
+    }
+
+    .esb-step + .esb-step {
+        border-top: 1px solid var(--esb-stone-dark);
+    }
+
+    .esb-bay {
+        padding: 48px 36px;
+    }
+
+    .esb-plaque {
+        padding: 36px;
+    }
+}
+
+@media (max-width: 760px) {
+    .esb-tower {
+        grid-template-columns: minmax(0, 1fr);
+        border-inline-width: 6px;
+    }
+
+    .esb-shaft {
+        display: none;
+    }
+
+    .esb-base {
+        border-inline-width: 6px;
+    }
+
+    .esb-bay {
+        padding: 32px 18px;
+    }
+
+    .esb-plaque {
+        padding: 26px 22px;
+        box-shadow:
+            0 0 0 6px var(--esb-stone-light),
+            0 0 0 7px var(--esb-stone-shadow);
+    }
+
+    .esb-band {
+        padding: 12px 18px;
+        gap: 12px;
+    }
+
+    .esb-band-rule {
+        display: none;
+    }
+
+    .esb-band-meta {
+        margin-left: auto;
+    }
+
+    .esb-facts {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .esb-fact,
+    .esb-fact + .esb-fact {
+        padding: 14px 0;
+        border-left: none;
+    }
+
+    .esb-fact + .esb-fact {
+        border-top: 1px solid var(--esb-stone-dark);
+    }
+
+    .esb-street {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+

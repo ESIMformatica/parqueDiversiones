@@ -1,0 +1,275 @@
+/* ==========================================================================
+   LA CAÍDA DEL EMPIRE STATE — HUECO DEL ASCENSOR CON KING KONG
+   La cabina es sticky: mientras la fachada sube con el scroll, la cabina
+   recorre el hueco desde la sala de máquinas hasta el foso.
+   ========================================================================== */
+
+.esb-shaft {
+    --machine-height: 120px;
+    --pit-height: 96px;
+
+    position: relative;
+
+    padding: var(--machine-height) 0 var(--pit-height);
+
+    background-color: var(--esb-steel);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='206' height='160'%3E%3Cpath d='M40 0L176 160M176 0L40 160' stroke='%233b3f42' stroke-width='3'/%3E%3Crect width='206' height='4' fill='%233b3f42'/%3E%3C/svg%3E");
+    background-size: 206px 160px;
+    border-right: 6px solid var(--esb-stone-dark);
+
+    /* clip (no hidden) para no romper el position: sticky de la cabina */
+    overflow: clip;
+}
+
+/* Guías verticales de la cabina */
+.esb-shaft-rails {
+    position: absolute;
+    inset: 0 auto 0 36px;
+
+    width: 144px;
+
+    border-inline: 3px solid #6b7074;
+    pointer-events: none;
+}
+
+/* ---------- Sala de máquinas ---------- */
+
+.esb-machine {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 3;
+
+    height: var(--machine-height);
+
+    background: var(--esb-steel-mid);
+    border-bottom: 4px solid var(--esb-steel-dark);
+}
+
+.esb-machine-label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    right: 0;
+
+    color: #b9bdbf;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.esb-sheave {
+    position: absolute;
+    top: 66px;
+    left: 95px;
+
+    width: 26px;
+    height: 26px;
+
+    background: var(--esb-steel-dark);
+    border: 3px solid var(--esb-cable);
+    border-radius: 50%;
+}
+
+.esb-motor {
+    position: absolute;
+    top: 70px;
+    left: 132px;
+
+    width: 36px;
+    height: 22px;
+
+    background: var(--esb-steel);
+    border: 2px solid var(--esb-steel-dark);
+}
+
+/* ---------- Escala de pisos ---------- */
+
+.esb-scale {
+    position: absolute;
+    top: calc(var(--machine-height) + 224px);
+    bottom: calc(var(--pit-height) + 46px);
+    left: 0;
+    z-index: 1;
+
+    width: 34px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+.esb-scale span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3px;
+
+    height: 0;
+    padding-right: 2px;
+
+    color: var(--esb-cable);
+    font-size: 0.58rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.esb-scale span::after {
+    content: "";
+    width: 6px;
+    height: 1px;
+    background: var(--esb-cable);
+}
+
+/* ---------- Contrapeso ---------- */
+
+.esb-counterweight {
+    position: absolute;
+    top: var(--machine-height);
+    left: 184px;
+    z-index: 1;
+
+    width: 22px;
+    height: 90px;
+
+    background-color: #5c6164;
+    background-image: repeating-linear-gradient(180deg, transparent 0 14px, var(--esb-steel-dark) 14px 16px);
+    border: 2px solid var(--esb-steel-dark);
+}
+
+.esb-counterweight::before {
+    content: "";
+
+    position: absolute;
+    bottom: 100%;
+    left: 8px;
+
+    width: 2px;
+    height: 3000px;
+
+    background: var(--esb-cable);
+}
+
+/* ---------- Cabina + King Kong ---------- */
+
+.esb-rig {
+    position: sticky;
+    top: calc(var(--topbar-height) + 20px);
+    z-index: 2;
+
+    width: 140px;
+    margin-left: 38px;
+}
+
+/* Cables de tracción que suben hasta la polea */
+.esb-rig::before {
+    content: "";
+
+    position: absolute;
+    bottom: 100%;
+    left: 59px;
+
+    width: 22px;
+    height: 3000px;
+
+    border-inline: 2px solid var(--esb-cable);
+}
+
+.esb-rig svg {
+    display: block;
+    width: 140px;
+    height: 230px;
+}
+
+.esb-kong {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+}
+
+.esb-rig.is-moving .esb-kong {
+    animation: esb-kong-sway 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes esb-kong-sway {
+    from { transform: rotate(-2deg); }
+    to { transform: rotate(2deg); }
+}
+
+/* Indicador de piso bajo la cabina */
+.esb-rig-plate {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px;
+
+    margin: 6px 8px 0;
+    padding: 6px 10px;
+
+    color: var(--esb-glass-lit);
+    background: var(--esb-steel-dark);
+    border-top: 2px solid var(--esb-brass);
+
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.esb-rig-plate strong {
+    font-size: 1.15rem;
+    font-stretch: 75%;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Foso ---------- */
+
+.esb-pit {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 1;
+
+    height: var(--pit-height);
+
+    background: #232527;
+    border-top: 4px solid var(--esb-steel-dark);
+}
+
+.esb-buffer {
+    position: absolute;
+    top: 8px;
+
+    width: 22px;
+    height: 44px;
+
+    background-image: repeating-linear-gradient(180deg, var(--esb-cable) 0 3px, transparent 3px 7px);
+    border-inline: 2px solid #6b7074;
+}
+
+.esb-buffer--left { left: 56px; }
+.esb-buffer--right { left: 136px; }
+
+.esb-pit-label {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+
+    color: #6b7074;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .esb-rig.is-moving .esb-kong {
+        animation: none;
+    }
+}
+

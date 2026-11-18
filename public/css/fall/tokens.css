@@ -1,131 +1,102 @@
 /* ==========================================================================
-   EMPIRE STATE & KING KONG — PALETA ARQUITECTÓNICA PIEDRA CALIZA (CREMA)
-   Diseño editorial limpio: sin gradientes artificiales, sin brillos neón.
+   LA CAÍDA DEL EMPIRE STATE — TOKENS
+   Paleta tomada de los materiales reales del edificio:
+   piedra caliza de Indiana, enjutas de aluminio, vidrio y bronce Art Déco.
+   Una sola familia tipográfica (Archivo); los títulos usan su eje de ancho.
    ========================================================================== */
 
 :root {
-    /* Piedra Caliza Indiana (Indiana Limestone) — Tonos Crema y Arena */
-    --stone-bg: #f4efe6;
-    --stone-surface: #ebe4d6;
-    --stone-panel: #e2d9c8;
-    --stone-recessed: #d6cbb8;
-    --stone-paper: #faf7f2;
+    /* Cielo / fondo de página */
+    --esb-sky: #f2ece0;
 
-    /* Juntas de mampostería y bordes estructurales */
-    --mortar-line: #c4b7a1;
-    --mortar-strong: #9e907a;
-    --steel-mullion: #5c564e;
-    --iron-frame: #23201d;
+    /* Piedra caliza */
+    --esb-stone: #ddd3c1;
+    --esb-stone-light: #e9e2d4;
+    --esb-stone-dark: #c9bda8;
+    --esb-stone-shadow: #a89a83;
 
-    /* Tinta tipográfica y acentos sobrios Art Déco / King Kong */
-    --ink-primary: #1e1b18;
-    --ink-secondary: #4a443c;
-    --ink-muted: #736a5e;
-    --accent-brass: #8c6d32;
-    --accent-brass-light: #dfd2b5;
-    --accent-terracotta: #8a3324;
+    /* Fachada */
+    --esb-aluminum: #a3a5a2;
+    --esb-glass: #4f5658;
+    --esb-glass-lit: #d9bc78;
 
-    /* Tipografías editoriales y técnicas */
-    --font-serif: "Cormorant Garamond", Georgia, serif;
-    --font-sans: "Plus Jakarta Sans", "Nunito", sans-serif;
-    --font-mono: "JetBrains Mono", monospace;
+    /* Hueco del ascensor */
+    --esb-steel: #2e3133;
+    --esb-steel-mid: #4a4e51;
+    --esb-steel-dark: #1d1f21;
+    --esb-cable: #8d9295;
+
+    /* Bronce Art Déco */
+    --esb-brass: #a6844a;
+    --esb-brass-dark: #7a5f32;
+
+    /* Tinta */
+    --esb-ink: #221e1a;
+    --esb-ink-soft: #5b5248;
+    --esb-ink-faint: #8a7f72;
+    --esb-paper: #f8f4ec;
+    --esb-red: #8f2d1f;
+
+    --esb-font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --esb-shaft-width: 212px;
 }
 
-/* Ajuste del contenedor principal cuando estamos en la vista Fall */
-.fall-facade-shell {
-    position: relative;
-    max-width: 1240px;
+/* El fondo crema solo aplica a la página que contiene el edificio */
+body:has(.esb) {
+    background: var(--esb-sky);
+}
+
+.esb {
+    max-width: 1180px;
     margin: 0 auto;
-    background-color: var(--stone-bg);
-    color: var(--ink-primary);
-    border: 2px solid var(--iron-frame);
-    font-family: var(--font-sans);
-    /* Líneas horizontales de sillares de piedra caliza cada 72px */
-    background-image:
-        linear-gradient(to bottom, var(--mortar-line) 1px, transparent 1px);
-    background-size: 100% 72px;
+
+    color: var(--esb-ink);
+    font-family: var(--esb-font);
+    font-size: 1rem;
 }
 
-/* Barra superior de cornisa del edificio */
-.facade-cornice {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 28px;
-    background-color: var(--iron-frame);
-    color: var(--stone-bg);
-    border-bottom: 2px solid var(--accent-brass);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-}
+/* ---------- Tipografía ---------- */
 
-.facade-cornice-coords {
-    color: var(--accent-brass-light);
-}
-
-/* Estructura interna con riel de descenso a la izquierda y muros a la derecha */
-.facade-body-grid {
-    display: grid;
-    grid-template-columns: 112px 1fr;
-    position: relative;
-}
-
-/* Contenido principal sobre los muros de piedra caliza */
-.facade-wall-content {
-    position: relative;
-    border-left: 2px solid var(--iron-frame);
-    background-color: rgba(244, 239, 230, 0.92);
-}
-
-/* Molduras divisorias entre pisos del edificio */
-.floor-spandrel-divider {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 36px;
-    background-color: var(--stone-recessed);
-    border-top: 2px solid var(--iron-frame);
-    border-bottom: 2px solid var(--iron-frame);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-secondary);
-}
-
-.floor-spandrel-divider span:last-child {
-    color: var(--accent-terracotta);
-}
-
-/* Utilidades tipográficas editoriales */
-.editorial-kicker {
+.esb-label {
     display: inline-block;
-    font-family: var(--font-mono);
+    margin: 0;
+
+    color: var(--esb-ink-faint);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent-terracotta);
-    margin-bottom: 10px;
 }
 
-.editorial-heading {
+.esb-label--accent {
+    color: var(--esb-red);
+}
+
+.esb-heading {
+    margin: 0 0 18px;
+
+    font-size: clamp(2rem, 3.4vw, 2.9rem);
+    font-stretch: 75%;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+}
+
+.esb-text {
+    max-width: 62ch;
     margin: 0 0 16px;
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.6vw, 3rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-    color: var(--ink-primary);
+
+    color: var(--esb-ink-soft);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
-.editorial-lead {
-    margin: 0;
-    font-size: 1.02rem;
-    line-height: 1.7;
-    color: var(--ink-secondary);
-    font-weight: 400;
+.esb-text:last-child {
+    margin-bottom: 0;
+}
+
+.esb-text strong {
+    color: var(--esb-ink);
+    font-weight: 600;
 }
