@@ -3,7 +3,7 @@
     scene-title-top="Una contraseña"
     scene-title-bottom="nueva te espera."
     scene-description="Elige una clave segura y continúa con tu próxima aventura."
-    page-title="Crear nueva contraseña · Parque de Diversiones"
+    page-title="Crear nueva contraseña · ESIM Park"
 >
     <div class="park-login__form-wrap">
         <p class="park-login__eyebrow"><span></span> Casi listo</p>

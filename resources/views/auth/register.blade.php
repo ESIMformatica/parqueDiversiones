@@ -3,7 +3,7 @@
     scene-title-top="Tu próxima visita"
     scene-title-bottom="empieza aquí."
     scene-description="Crea tu cuenta y ten siempre a mano tu acceso al parque."
-    page-title="Crear cuenta · Parque de Diversiones"
+    page-title="Crear cuenta · ESIM Park"
 >
     <div class="park-login__form-wrap">
         <p class="park-login__eyebrow"><span></span> Hazte parte</p>

@@ -3,7 +3,7 @@
     'sceneTitleTop' => 'La emoción',
     'sceneTitleBottom' => 'está a la vuelta.',
     'sceneDescription' => 'Un lugar para soltar el día y volver a sentirlo todo.',
-    'pageTitle' => 'Iniciar sesión · Parque de Diversiones',
+    'pageTitle' => 'Iniciar sesión · ESIM Park',
 ])
 
 <!DOCTYPE html>
@@ -16,13 +16,26 @@
 
         <title>{{ $pageTitle }}</title>
 
+        @unless (request()->routeIs('login', 'register'))
+            <link rel="stylesheet" href="{{ asset('css/tokens.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/layout/sidebar.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/layout/sidebar-collapsed.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/components/overlay.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/utilities/responsive.css') }}">
+        @endunless
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="park-login-page">
+    <body class="park-login-page {{ request()->routeIs('login', 'register') ? '' : 'park-login-page--with-sidebar' }}">
+        @unless (request()->routeIs('login', 'register'))
+            @include('partials.sidebar')
+        @endunless
+
         <div class="park-login">
             <section class="park-login__scene" aria-labelledby="park-scene-title">
                 <img
@@ -33,9 +46,9 @@
                 >
                 <div class="park-login__scene-shade" aria-hidden="true"></div>
 
-                <a class="park-login__brand" href="{{ url('/') }}" aria-label="Parque de Diversiones, inicio">
+                <a class="park-login__brand" href="{{ url('/') }}" aria-label="ESIM Park, inicio">
                     <span class="park-login__brand-mark" aria-hidden="true">PD</span>
-                    <span class="park-login__brand-name">Parque <strong>de Diversiones</strong></span>
+                    <span class="park-login__brand-name">ESIM <strong>Park</strong></span>
                 </a>
 
                 <div class="park-login__scene-copy">
@@ -55,5 +68,8 @@
                 <p class="park-login__security"><span aria-hidden="true"></span> Acceso seguro para visitantes</p>
             </main>
         </div>
+        @unless (request()->routeIs('login', 'register'))
+            <script src="{{ asset('js/sidebar.js') }}"></script>
+        @endunless
     </body>
 </html>

@@ -3,7 +3,7 @@
     scene-title-top="La aventura"
     scene-title-bottom="te espera."
     scene-description="Recupera tu cuenta y vuelve a planear tu próxima visita."
-    page-title="Recuperar contraseña · Parque de Diversiones"
+    page-title="Recuperar contraseña · ESIM Park"
 >
     <div class="park-login__form-wrap">
         <p class="park-login__eyebrow"><span></span> Recupera tu acceso</p>

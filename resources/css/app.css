@@ -555,3 +555,14 @@
 		transition-duration: 0.01ms !important;
 	}
 }
+
+.park-login-page--with-sidebar .park-login {
+	margin-left: var(--sidebar-width);
+}
+
+@media (max-width: 760px) {
+	.park-login-page--with-sidebar .park-login {
+		margin-left: 0;
+		padding-top: var(--topbar-height);
+	}
+}

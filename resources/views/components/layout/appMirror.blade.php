@@ -28,6 +28,7 @@
 
       <!-- CSS -->
      <link rel="stylesheet" href="{{ asset('css/mirrorstyle.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/attraction-sidebars.css') }}">
      <link rel="preconnect" href="https://fonts.googleapis.com">
 
     {{ $head ?? '' }}
@@ -35,7 +36,11 @@
 
 <body class="retro-shell">
 
-    <x-layout.sidebarmirror />
+    @isset($sidebar)
+        {{ $sidebar }}
+    @else
+        <x-layout.sidebarmirror />
+    @endisset
 
     <div class="retro-main">
 

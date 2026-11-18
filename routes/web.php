@@ -16,7 +16,7 @@ use App\Http\Controllers\KamikazeController;
 Route::view('/', 'pages.inicio')->name('inicio');
 
 // Páginas generales
-Route::view('/inicio', 'inicio');
+Route::view('/inicio', 'pages.inicio')->name('inicio.page');
 Route::view('/preguntas-frecuentes', 'pages.preguntas')
     ->name('preguntas');
 
@@ -32,7 +32,7 @@ Route::get('/kamikaze', [KamikazeController::class, 'index'])->name('kamikaze');
 
 // Dashboard protegido
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('profile.edit');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Perfil de usuario
