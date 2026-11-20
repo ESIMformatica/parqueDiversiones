@@ -88,6 +88,11 @@
       22px;
   }
 
+  .main-content__header {
+    margin-left: 0;
+    padding: 16px 16px 0;
+  }
+
   .hero-card {
     min-height: 270px;
     padding: 26px 20px;

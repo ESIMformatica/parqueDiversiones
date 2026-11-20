@@ -9,6 +9,18 @@
   transition: margin-left var(--smooth);
 }
 
+.main-content.guest-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.main-content__header {
+  margin-left: var(--sidebar-width);
+  padding: 20px 32px 0;
+}
+
 /* Contenedor de la página de inicio: apila hero, "sobre el parque" y mapa */
 .inicio {
   display: flex;

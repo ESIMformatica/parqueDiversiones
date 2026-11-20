@@ -1,4 +1,14 @@
 
+<button
+    class="mobile-menu-button"
+    type="button"
+    aria-label="Abrir menú lateral"
+    aria-controls="sidebar"
+    aria-expanded="false"
+>
+    ☰
+</button>
+
 <aside class="sidebar" id="sidebar">
 
     <div class="sidebar-header">
@@ -19,8 +29,8 @@
 
     {{-- INICIO --}}
     <a href="{{ route('inicio') }}"
-       class="sidebar-item {{ request()->routeIs('inicio') ? 'active' : '' }}"
-       {{ request()->routeIs('inicio') ? 'aria-current=page' : '' }}>
+       class="sidebar-item {{ request()->routeIs('inicio', 'inicio.page') ? 'active' : '' }}"
+       {{ request()->routeIs('inicio', 'inicio.page') ? 'aria-current=page' : '' }}>
 
         <span class="sidebar-icon icon-home">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -162,6 +172,36 @@
             </div>
 
         </div>
+
+        {{-- CUENTA --}}
+        @auth
+            <a href="{{ route('profile.edit') }}"
+               class="sidebar-item {{ request()->routeIs('profile.*') ? 'active' : '' }}"
+               {{ request()->routeIs('profile.*') ? 'aria-current=page' : '' }}>
+                <span class="sidebar-icon icon-help" aria-hidden="true">👤</span>
+                <span class="sidebar-label">Mi perfil · {{ Auth::user()->name }}</span>
+            </a>
+
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="sidebar-item">
+                    <span class="sidebar-icon icon-contact" aria-hidden="true">↪</span>
+                    <span class="sidebar-label">Cerrar sesión</span>
+                </button>
+            </form>
+        @else
+            <a href="{{ route('login') }}"
+               class="sidebar-item {{ request()->routeIs('login') ? 'active' : '' }}">
+                <span class="sidebar-icon icon-help" aria-hidden="true">🔑</span>
+                <span class="sidebar-label">Iniciar sesión</span>
+            </a>
+
+            <a href="{{ route('register') }}"
+               class="sidebar-item {{ request()->routeIs('register') ? 'active' : '' }}">
+                <span class="sidebar-icon icon-rides" aria-hidden="true">＋</span>
+                <span class="sidebar-label">Crear cuenta</span>
+            </a>
+        @endauth
 
     </nav>
 

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Inicio | Web Fun Park')
+@section('title', 'Inicio | ESIM Park')
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/park-branding.css') }}">
+@endpush
 
 @section('content')
 
@@ -13,9 +17,10 @@
             <div class="hero-shape hero-shape-orange"></div>
             <div class="hero-shape hero-shape-purple"></div>
 
+            <img class="hero-logo" src="{{ asset('img/esim-park-logo.png') }}" alt="ESIM Park">
             <p class="hero-kicker">Portal principal</p>
 
-            <h1>¡Bienvenidos a Web Fun Park!</h1>
+            <h1>¡Bienvenidos a ESIM Park!</h1>
 
             <p class="hero-copy">
                 El parque de diversiones de la escuela: juegos, desafíos y
@@ -30,10 +35,10 @@
 
         {{-- ============ SOBRE EL PARQUE ============ --}}
         <section class="about" aria-labelledby="titulo-parque">
-            <h2 class="section-title" id="titulo-parque">¿Qué es Web Fun Park?</h2>
+            <h2 class="section-title" id="titulo-parque">¿Qué es ESIM Park?</h2>
 
             <p class="about-intro">
-                Web Fun Park es un parque de diversiones hecho por y para la comunidad
+                ESIM Park es un parque de diversiones hecho por y para la comunidad
                 escolar. Cada atracción esconde un desafío distinto, así que se aprende
                 jugando. Podés ir con tus compañeros, con tu curso o en familia.
             </p>

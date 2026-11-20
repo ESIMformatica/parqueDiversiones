@@ -1,75 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>@yield('title', 'ESIM Park')</title>
 
-<head>
-    <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/tokens.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/layout/sidebar.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/layout/sidebar-collapsed.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/layout/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/components/overlay.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/utilities/responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/mapa.css') }}">
+        @stack('styles')
+    </head>
+    <body>
+        @include('partials.sidebar')
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        @isset($header)
+            <header class="main-content__header">
+                {{ $header }}
+            </header>
+        @endisset
 
-    <title>@yield('title', 'ESIMPark')</title>
+        <main class="main-content">
+            @hasSection('content')
+                @yield('content')
+            @else
+                {{ $slot ?? '' }}
+            @endif
+        </main>
 
-
-    <!-- Fuentes -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Nunito:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- CSS general -->
-
-    <link
-        rel="stylesheet"
-        href="{{ asset('css/app.css') }}"
-    >
-
-
-    <!-- CSS específico de cada página -->
-
-    @stack('styles')
-
-</head>
-
-
-<body>
-
-    @include('partials.sidebar')
-
-
-    <main class="main-content">
-
-        @yield('content')
-
-    </main>
-
-
-    <div class="sidebar-overlay"></div>
-
-
-    <!-- JS general -->
-
-    <script src="{{ asset('js/sidebar.js') }}"></script>
-
-
-    <!-- JS específico de cada página -->
-
-    @stack('scripts')
-
-</body>
-
+        <script src="{{ asset('js/sidebar.js') }}"></script>
+        @stack('scripts')
+    </body>
 </html>
