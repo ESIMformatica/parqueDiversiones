@@ -1,6 +1,6 @@
 /* ==========================================================================
    LA CAÍDA DEL EMPIRE STATE — ESTRUCTURA DEL EDIFICIO
-   Corona → torre (ascensor + fachada) → basamento sobre la Quinta Avenida
+   Corona → directorio de pisos → torre (ascensor + fachada) → basamento
    ========================================================================== */
 
 /* ---------- Corona ---------- */
@@ -43,6 +43,106 @@
     to { transform: translate(36px, -6px); }
 }
 
+/* ---------- Directorio de pisos Art Déco ---------- */
+
+.esb-floor-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding: 10px 24px;
+
+    background: var(--esb-stone-dark);
+    border-inline: 10px solid var(--esb-stone-dark);
+    border-top: 2px solid var(--esb-brass);
+    border-bottom: 2px solid var(--esb-ink);
+    box-shadow: inset 0 1px 0 var(--esb-stone-light);
+}
+
+.esb-floor-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.esb-floor-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 12px;
+
+    color: var(--esb-ink-soft);
+    background: var(--esb-stone-light);
+    border: 1px solid var(--esb-stone-shadow);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.esb-floor-nav-link:hover {
+    color: var(--esb-ink);
+    background: var(--esb-paper);
+    border-color: var(--esb-ink);
+}
+
+.esb-floor-nav-link.is-active {
+    color: var(--esb-paper);
+    background: var(--esb-ink);
+    border-color: var(--esb-ink);
+}
+
+.esb-floor-nav-num {
+    font-stretch: 75%;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--esb-red);
+}
+
+.esb-floor-nav-link.is-active .esb-floor-nav-num {
+    color: var(--esb-glass-lit);
+}
+
+.esb-floor-nav-live {
+    display: none;
+    align-items: baseline;
+    gap: 8px;
+
+    padding: 5px 10px;
+
+    color: var(--esb-glass-lit);
+    background: var(--esb-steel-dark);
+    border-top: 2px solid var(--esb-brass);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.esb-floor-nav-live strong {
+    font-size: 0.92rem;
+    font-stretch: 75%;
+    font-weight: 800;
+}
+
 /* ---------- Torre ---------- */
 
 .esb-tower {
@@ -80,15 +180,18 @@
 }
 
 .esb-band-floor {
-    min-width: 2.4ch;
+    min-width: 2.7ch;
+    padding-right: 20px;
 
-    color: var(--esb-stone-shadow);
-    font-size: 2.1rem;
+    color: var(--esb-ink);
+    border-right: 1px solid var(--esb-stone-shadow);
+    box-shadow: 1px 0 0 var(--esb-stone-light);
+
+    font-size: 2.15rem;
     font-stretch: 75%;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
     line-height: 1;
-    text-shadow: 0 1px 0 var(--esb-stone-light);
 }
 
 .esb-band-name {
@@ -125,6 +228,7 @@
 
 .esb-bay {
     padding: 64px 56px;
+    scroll-margin-top: 72px;
 }
 
 .esb-plaque {
@@ -132,9 +236,11 @@
 
     background: var(--esb-paper);
     border: 1px solid var(--esb-stone-shadow);
+    border-top: 3px solid var(--esb-brass);
     box-shadow:
         0 0 0 12px var(--esb-stone-light),
-        0 0 0 13px var(--esb-stone-shadow);
+        0 0 0 13px var(--esb-stone-shadow),
+        0 18px 0 -6px rgba(34, 30, 26, 0.14);
 }
 
 /* ---------- Basamento ---------- */
@@ -142,6 +248,7 @@
 .esb-base {
     border-inline: 10px solid var(--esb-stone-dark);
     line-height: 0;
+    scroll-margin-top: 72px;
 }
 
 .esb-base svg {
@@ -170,4 +277,3 @@
         animation: none;
     }
 }
-

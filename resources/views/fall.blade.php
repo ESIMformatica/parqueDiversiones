@@ -20,6 +20,9 @@
         {{-- Corona: antena, mástil y retranqueos --}}
         @include('partials.fall.crown')
 
+        {{-- Directorio de pisos Art Déco y altura en vivo en móvil --}}
+        @include('partials.fall.floor-nav')
+
         {{-- Torre: hueco del ascensor + fachada --}}
         <div class="esb-tower">
 

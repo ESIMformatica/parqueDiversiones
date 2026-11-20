@@ -5,7 +5,16 @@
 
     <div class="esb-machine" aria-hidden="true">
         <span class="esb-machine-label">Sala de máquinas</span>
-        <span class="esb-sheave"></span>
+        <span class="esb-sheave">
+            <svg class="esb-sheave-svg" data-esb-sheave viewBox="0 0 32 32">
+                <circle cx="16" cy="16" r="13" fill="#1d1f21" stroke="#8d9295" stroke-width="3"/>
+                <line x1="16" y1="3" x2="16" y2="29" stroke="#6b7074" stroke-width="2"/>
+                <line x1="3" y1="16" x2="29" y2="16" stroke="#6b7074" stroke-width="2"/>
+                <line x1="6.8" y1="6.8" x2="25.2" y2="25.2" stroke="#6b7074" stroke-width="1.5"/>
+                <line x1="25.2" y1="6.8" x2="6.8" y2="25.2" stroke="#6b7074" stroke-width="1.5"/>
+                <circle cx="16" cy="16" r="4" fill="#a6844a" stroke="#1d1f21" stroke-width="1.5"/>
+            </svg>
+        </span>
         <span class="esb-motor"></span>
     </div>
 
@@ -26,25 +35,39 @@
 
             {{-- King Kong sobre el techo de la cabina --}}
             <g class="esb-kong">
-                <g fill="#1f1b19">
-                    <ellipse cx="50" cy="88" rx="17" ry="9"/>
-                    <ellipse cx="90" cy="88" rx="17" ry="9"/>
-                    <ellipse cx="38" cy="94" rx="8" ry="3"/>
-                    <ellipse cx="102" cy="94" rx="8" ry="3"/>
-                    <path d="M46 88 C40 70 42 52 54 44 L86 44 C98 52 100 70 94 88 Z"/>
+                <g fill="#181513">
+                    {{-- Piernas agachadas sobre el techo --}}
+                    <ellipse cx="49" cy="88" rx="18" ry="9.5"/>
+                    <ellipse cx="91" cy="88" rx="18" ry="9.5"/>
+                    <ellipse cx="37" cy="94" rx="8.5" ry="3.5"/>
+                    <ellipse cx="103" cy="94" rx="8.5" ry="3.5"/>
+                    {{-- Torso y hombros anchos --}}
+                    <path d="M44 88 C36 69 38 48 52 41 L88 41 C102 48 104 69 96 88 Z"/>
                 </g>
-                <path d="M57 54 Q70 62 83 54 L81 70 Q70 75 59 70 Z" fill="#2c2622"/>
-                <path d="M52 50 C36 58 28 76 30 92" fill="none" stroke="#1f1b19" stroke-width="11" stroke-linecap="round"/>
-                <ellipse cx="30" cy="93" rx="7" ry="4" fill="#1f1b19"/>
-                <path d="M88 50 C100 38 96 20 82 12" fill="none" stroke="#1f1b19" stroke-width="10" stroke-linecap="round"/>
-                <ellipse cx="81" cy="11" rx="5.5" ry="6.5" fill="#1f1b19"/>
-                <path d="M58 42 C55 30 60 18 70 15 C80 18 85 30 82 42 C77 48 63 48 58 42 Z" fill="#1f1b19"/>
-                <path d="M62 34 Q70 30 78 34 L77 42 Q70 46 63 42 Z" fill="#5a4e45"/>
-                <path d="M60 31 Q70 26 80 31 L80 33.5 Q70 29.5 60 33.5 Z" fill="#1f1b19"/>
-                <circle cx="65.5" cy="34.6" r="1.3" fill="#d9a441"/>
-                <circle cx="74.5" cy="34.6" r="1.3" fill="#d9a441"/>
-                <circle cx="68.5" cy="39" r="0.8" fill="#1f1b19"/>
-                <circle cx="71.5" cy="39" r="0.8" fill="#1f1b19"/>
+                {{-- Pecho y volumen de torso --}}
+                <path d="M55 52 Q70 62 85 52 L83 72 Q70 78 57 72 Z" fill="#2b2521"/>
+                <path d="M52 44 Q70 39 88 44" fill="none" stroke="#38312c" stroke-width="2" stroke-linecap="round"/>
+                <path d="M58 58 Q70 64 82 58" fill="none" stroke="#38312c" stroke-width="1.6" stroke-linecap="round"/>
+
+                {{-- Brazo izquierdo apoyado firme en la cabina --}}
+                <path d="M49 48 C34 57 27 75 29 92" fill="none" stroke="#181513" stroke-width="12" stroke-linecap="round"/>
+                <path d="M48 52 C37 61 32 74 32 87" fill="none" stroke="#38312c" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="29" cy="93" rx="7.5" ry="4" fill="#181513"/>
+
+                {{-- Brazo derecho aferrado al cable de tracción --}}
+                <path d="M90 48 C102 36 98 19 82 11" fill="none" stroke="#181513" stroke-width="11" stroke-linecap="round"/>
+                <path d="M92 44 C99 34 95 21 84 14" fill="none" stroke="#38312c" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="81" cy="11" rx="6" ry="7" fill="#181513"/>
+
+                {{-- Cabeza, cresta y rostro --}}
+                <path d="M57 41 C54 28 59 16 70 13 C81 16 86 28 83 41 C77 48 63 48 57 41 Z" fill="#181513"/>
+                <path d="M63 17 Q70 13 77 17" fill="none" stroke="#38312c" stroke-width="2" stroke-linecap="round"/>
+                <path d="M62 33 Q70 29 78 33 L77 42 Q70 46 63 42 Z" fill="#5a4e45"/>
+                <path d="M60 30 Q70 25 80 30 L80 32.8 Q70 28.8 60 32.8 Z" fill="#181513"/>
+                <circle cx="65.5" cy="34" r="1.35" fill="#d9a441"/>
+                <circle cx="74.5" cy="34" r="1.35" fill="#d9a441"/>
+                <circle cx="68.5" cy="38.5" r="0.8" fill="#181513"/>
+                <circle cx="71.5" cy="38.5" r="0.8" fill="#181513"/>
             </g>
 
             {{-- Cabezal y patines guía --}}
@@ -85,6 +108,7 @@
         <div class="esb-rig-plate">
             <span>Piso</span>
             <strong data-esb-floor>102</strong>
+            <span class="esb-rig-dir" data-esb-dir aria-hidden="true">&bull;</span>
             <span data-esb-meters>381 m</span>
         </div>
     </div>
@@ -95,4 +119,3 @@
         <span class="esb-pit-label">Foso</span>
     </div>
 </aside>
-

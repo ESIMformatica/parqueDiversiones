@@ -1,22 +1,22 @@
 @php
     $stages = [
         [
-            'image' => 'proceso-1.jpg',
+            'image' => 'proceso-1.jpeg',
             'stage' => 'Etapa 01 — Estructura',
             'title' => 'Corte y armado de la torre',
             'text' => 'Armado de los volúmenes escalonados del edificio, respetando los retranqueos Art Déco y el color de la piedra caliza.',
         ],
         [
-            'image' => 'proceso-2.jpg',
+            'image' => 'proceso-2.jpeg',
             'stage' => 'Etapa 02 — Mecanismo',
             'title' => 'Guía vertical y carrito',
-            'text' => 'Montaje de la guía central sobre la fachada para que el carrito suba con Kong y baje sin trabarse.',
+            'text' => 'Montaje de la guía central de 90 cm de caída libre sobre la fachada para que el carrito suba hasta la cima y descienda sin trabarse.',
         ],
         [
-            'image' => 'proceso-3.jpg',
+            'image' => 'proceso-3.jpeg',
             'stage' => 'Etapa 03 — Terminación',
             'title' => 'King Kong y detalles',
-            'text' => 'Modelado de Kong sujetando el carrito, pintura de las ventanas y ambientación de la calle en la base.',
+            'text' => 'Modelado y fijación estática de King Kong en la punta del edificio, pintura de las ventanas y ambientación de la calle en la base.',
         ],
     ];
 @endphp

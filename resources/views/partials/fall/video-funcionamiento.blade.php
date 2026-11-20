@@ -7,8 +7,8 @@
                 <h2 class="esb-heading" id="esb-video-title">Un ciclo, tres tiempos</h2>
             </div>
             <p class="esb-text">
-                Así funciona la atracción en la maqueta: Kong toma el carrito en la base, lo sube por
-                la guía central de la fachada y lo suelta desde la punta.
+                Así funciona la atracción en la maqueta: el carrito sube por la guía central hacia King Kong
+                en la cima y luego recorre los 90 cm de caída libre hasta la base.
             </p>
         </header>
 
@@ -37,17 +37,17 @@
                 <span class="esb-label esb-label--accent">Piso 01</span>
                 <h3>Embarque</h3>
                 <p>
-                    Los pasajeros se sientan en el carrito al pie del edificio. Kong, unido al sistema de
-                    elevación, toma el carrito con las dos manos.
+                    Los pasajeros suben al carrito en la base del edificio y este queda acoplado al sistema
+                    de elevación sobre la guía vertical.
                 </p>
             </li>
             <li class="esb-step">
                 <span class="esb-step-num">02</span>
                 <span class="esb-label esb-label--accent">Piso 01 → 102</span>
-                <h3>Escalada</h3>
+                <h3>Ascenso hacia la cima</h3>
                 <p>
-                    Kong trepa por la guía central de la fachada y lleva el carrito hasta la aguja, el punto
-                    más alto de toda la maqueta.
+                    El carrito sube por la fachada hasta la punta del Empire State, donde King Kong aguarda
+                    estático dominando el rascacielos.
                 </p>
             </li>
             <li class="esb-step">
@@ -55,8 +55,8 @@
                 <span class="esb-label esb-label--accent">Piso 102 → 01</span>
                 <h3>Caída libre</h3>
                 <p>
-                    Tras unos segundos arriba, Kong suelta el carrito. Cae libremente por la guía hasta
-                    los frenos de la base.
+                    Tras quedar suspendido unos segundos en lo más alto frente a Kong, el carrito se libera y
+                    recorre los 90 cm de caída libre hasta los frenos de la base.
                 </p>
             </li>
         </ol>

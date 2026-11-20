@@ -13,8 +13,10 @@
     padding: var(--machine-height) 0 var(--pit-height);
 
     background-color: var(--esb-steel);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='206' height='160'%3E%3Cpath d='M40 0L176 160M176 0L40 160' stroke='%233b3f42' stroke-width='3'/%3E%3Crect width='206' height='4' fill='%233b3f42'/%3E%3C/svg%3E");
-    background-size: 206px 160px;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='206' height='160'%3E%3Cpath d='M40 0L176 160M176 0L40 160' stroke='%2343474b' stroke-width='3'/%3E%3Crect width='206' height='4' fill='%2343474b'/%3E%3C/svg%3E"),
+        linear-gradient(90deg, transparent 0 36px, #363a3d 36px 180px, transparent 180px);
+    background-size: 206px 160px, 100% 100%;
     border-right: 6px solid var(--esb-stone-dark);
 
     /* clip (no hidden) para no romper el position: sticky de la cabina */
@@ -61,20 +63,26 @@
 
 .esb-sheave {
     position: absolute;
-    top: 66px;
-    left: 95px;
+    top: 62px;
+    left: 93px;
 
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
 
-    background: var(--esb-steel-dark);
-    border: 3px solid var(--esb-cable);
-    border-radius: 50%;
+    display: block;
+}
+
+.esb-sheave-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    transform-origin: center center;
 }
 
 .esb-motor {
     position: absolute;
-    top: 70px;
+    top: 68px;
     left: 132px;
 
     width: 36px;
@@ -148,7 +156,7 @@
     left: 8px;
 
     width: 2px;
-    height: 3000px;
+    height: 6000px;
 
     background: var(--esb-cable);
 }
@@ -157,7 +165,7 @@
 
 .esb-rig {
     position: sticky;
-    top: calc(var(--topbar-height) + 20px);
+    top: 76px;
     z-index: 2;
 
     width: 140px;
@@ -173,7 +181,7 @@
     left: 59px;
 
     width: 22px;
-    height: 3000px;
+    height: 6000px;
 
     border-inline: 2px solid var(--esb-cable);
 }
@@ -203,7 +211,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 6px;
+    gap: 5px;
 
     margin: 6px 8px 0;
     padding: 6px 10px;
@@ -224,6 +232,14 @@
     font-weight: 800;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
+}
+
+.esb-rig-dir {
+    min-width: 1.2ch;
+    text-align: center;
+    color: var(--esb-brass);
+    font-size: 0.72rem;
+    letter-spacing: 0;
 }
 
 /* ---------- Foso ---------- */
@@ -272,4 +288,3 @@
         animation: none;
     }
 }
-

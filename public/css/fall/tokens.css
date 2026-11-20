@@ -46,6 +46,10 @@ body:has(.esb) {
     background: var(--esb-sky);
 }
 
+body:has(.esb) .main-content {
+    padding: 24px 32px 48px;
+}
+
 .esb {
     max-width: 1180px;
     margin: 0 auto;
