@@ -1,0 +1,330 @@
+/* ==========================================================================
+   LA CAÍDA DEL EMPIRE STATE — TEMA DE SIDEBAR Y NAVBAR
+   Acotado estrictamente a `body:has(.esb)` para mantener intactas la estructura
+   HTML, la funcionalidad y todas las demás vistas del sitio.
+   Estética: piedra caliza, bronce Art Déco, tinta oscura y tipografía Archivo.
+   ========================================================================== */
+
+/* ---------- Sidebar principal ---------- */
+
+body:has(.esb) .sidebar {
+    color: var(--esb-ink);
+    background: var(--esb-stone-light);
+    border-right: 2px solid var(--esb-stone-shadow);
+    box-shadow:
+        inset -1px 0 0 var(--esb-paper),
+        3px 0 0 var(--esb-stone-dark);
+    font-family: var(--esb-font);
+    scrollbar-color: var(--esb-stone-shadow) var(--esb-stone-light);
+}
+
+body:has(.esb) .sidebar-header {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--esb-brass);
+}
+
+body:has(.esb) .sidebar-title {
+    padding: 6px 10px;
+
+    color: var(--esb-paper);
+    background: var(--esb-ink);
+    border: 1px solid var(--esb-ink);
+    border-radius: 0;
+
+    font-family: var(--esb-font);
+    font-stretch: 75%;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    transform: none;
+}
+
+body:has(.esb) .sidebar-collapse {
+    border-radius: 0;
+
+    color: var(--esb-ink);
+    background: var(--esb-paper);
+    border: 1px solid var(--esb-stone-shadow);
+}
+
+body:has(.esb) .sidebar-collapse:hover {
+    color: var(--esb-glass-lit);
+    background: var(--esb-ink);
+    border-color: var(--esb-ink);
+    transform: none;
+}
+
+/* ---------- Ítems del menú ---------- */
+
+body:has(.esb) .sidebar-item {
+    color: var(--esb-ink);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0;
+
+    font-family: var(--esb-font);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+body:has(.esb) .sidebar-item::before {
+    inset: 4px auto 4px 0;
+    width: 3px;
+    border-radius: 0;
+}
+
+body:has(.esb) .sidebar-item:hover {
+    background: var(--esb-paper);
+    border-color: var(--esb-stone-shadow);
+    transform: none;
+}
+
+body:has(.esb) .sidebar-item:hover::before {
+    background: var(--esb-brass);
+}
+
+body:has(.esb) .sidebar-item.active {
+    color: var(--esb-paper);
+    background: var(--esb-ink);
+    border-color: var(--esb-ink);
+}
+
+body:has(.esb) .sidebar-item.active::before {
+    background: var(--esb-red);
+}
+
+/* ---------- Íconos unificados en piedra y bronce ---------- */
+
+body:has(.esb) .sidebar-icon,
+body:has(.esb) .icon-home,
+body:has(.esb) .icon-rides,
+body:has(.esb) .icon-help,
+body:has(.esb) .icon-contact {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+
+    color: var(--esb-ink);
+    background: var(--esb-stone);
+    border: 1px solid var(--esb-stone-shadow);
+    border-radius: 0;
+}
+
+body:has(.esb) .sidebar-item:hover .sidebar-icon {
+    color: var(--esb-paper);
+    background: var(--esb-brass);
+    border-color: var(--esb-brass-dark);
+    border-radius: 0;
+    transform: none;
+}
+
+body:has(.esb) .sidebar-item.active .sidebar-icon {
+    color: var(--esb-paper);
+    background: var(--esb-red);
+    border-color: var(--esb-red);
+}
+
+/* ---------- Submenú y contacto ---------- */
+
+body:has(.esb) .sidebar-chevron {
+    color: var(--esb-ink-soft);
+}
+
+body:has(.esb) .sidebar-item.active .sidebar-chevron {
+    color: var(--esb-glass-lit);
+}
+
+body:has(.esb) .sidebar-submenu {
+    margin: 4px 0 8px 18px;
+    padding-left: 12px;
+    border-left: 2px solid var(--esb-brass);
+}
+
+body:has(.esb) .sidebar-subitem {
+    color: var(--esb-ink-soft);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0;
+
+    font-family: var(--esb-font);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+body:has(.esb) .sidebar-subitem:hover {
+    color: var(--esb-ink);
+    background: var(--esb-paper);
+    border-color: var(--esb-stone-shadow);
+    transform: none;
+}
+
+body:has(.esb) .sidebar-subitem.active {
+    color: var(--esb-paper);
+    background: var(--esb-red);
+    border-color: var(--esb-red);
+    font-weight: 700;
+}
+
+body:has(.esb) .sidebar-contact-info {
+    padding: 6px 8px 10px 12px;
+}
+
+body:has(.esb) .sidebar-contact-info p {
+    margin: 8px 0 3px;
+    color: var(--esb-ink-faint);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body:has(.esb) .sidebar-contact-info .sidebar-subitem {
+    padding: 5px 6px;
+    font-size: 0.74rem;
+}
+
+/* ---------- Estado contraído ---------- */
+
+body.sidebar-collapsed:has(.esb) .sidebar-collapse {
+    transform: translateX(-50%);
+}
+
+body.sidebar-collapsed:has(.esb) .sidebar-collapse:hover {
+    transform: translateX(-50%);
+}
+
+body.sidebar-collapsed:has(.esb) .sidebar-item:hover {
+    background: transparent;
+    border-color: transparent;
+    transform: none;
+}
+
+body.sidebar-collapsed:has(.esb) .sidebar-item.active {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+body.sidebar-collapsed:has(.esb) .sidebar-item.active .sidebar-icon {
+    outline: 2px solid var(--esb-red);
+    outline-offset: 2px;
+}
+
+/* ---------- Botón móvil y overlay ---------- */
+
+body:has(.esb) .mobile-menu-button {
+    color: var(--esb-glass-lit);
+    background: var(--esb-ink);
+    border: 2px solid var(--esb-brass);
+    border-radius: 0;
+    box-shadow: 3px 3px 0 var(--esb-stone-shadow);
+}
+
+body:has(.esb) .mobile-menu-button:focus-visible {
+    outline: 2px solid var(--esb-red);
+    outline-offset: 3px;
+}
+
+body:has(.esb) .sidebar-overlay {
+    background: rgba(34, 30, 26, 0.52);
+}
+
+/* ---------- Navbar superior defensivo (por si se incluye .topbar) ---------- */
+
+body:has(.esb) .topbar {
+    color: var(--esb-ink);
+    background: var(--esb-stone-light);
+    border-bottom: 2px solid var(--esb-brass);
+    backdrop-filter: none;
+    font-family: var(--esb-font);
+}
+
+body:has(.esb) .brand {
+    color: var(--esb-ink);
+    font-family: var(--esb-font);
+    font-stretch: 75%;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+body:has(.esb) .brand-box {
+    color: var(--esb-paper);
+    background: var(--esb-ink);
+    border: 1px solid var(--esb-ink);
+    border-radius: 0;
+    transform: none;
+}
+
+body:has(.esb) .brand:hover .brand-box {
+    color: var(--esb-glass-lit);
+    background: var(--esb-red);
+    border-color: var(--esb-red);
+    transform: none;
+}
+
+body:has(.esb) .topnav-link {
+    color: var(--esb-ink-soft);
+    border-radius: 0;
+    font-family: var(--esb-font);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+body:has(.esb) .topnav-link::after {
+    height: 2px;
+    background: var(--esb-red);
+    border-radius: 0;
+}
+
+body:has(.esb) .topnav-link:hover,
+body:has(.esb) .topnav-link.active {
+    color: var(--esb-ink);
+    background: var(--esb-paper);
+    transform: none;
+}
+
+body:has(.esb) .ticket-button {
+    color: var(--esb-paper);
+    background: var(--esb-ink);
+    border: 1px solid var(--esb-ink);
+    border-radius: 0;
+    font-family: var(--esb-font);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+body:has(.esb) .ticket-button:hover {
+    color: var(--esb-paper);
+    background: var(--esb-red);
+    border-color: var(--esb-red);
+    transform: none;
+}
+
+/* ---------- Ajustes móviles (<= 760px) ---------- */
+
+@media (max-width: 760px) {
+    body:has(.esb) .sidebar-item.active {
+        color: var(--esb-paper) !important;
+        background: var(--esb-ink) !important;
+        border-color: var(--esb-ink) !important;
+    }
+
+    body:has(.esb) .sidebar-item.active .sidebar-icon {
+        color: var(--esb-paper) !important;
+        background: var(--esb-red) !important;
+        border-color: var(--esb-red) !important;
+        outline: none !important;
+    }
+
+    body:has(.esb) .esb-floor-nav {
+        padding-left: 64px;
+    }
+}
